@@ -30,6 +30,13 @@ wire GENERAL_CTRL_REG_ARG, GENERAL_CTRL_REG_INSTR, GENERAL_CTRL_REG_JUMP, GENERA
 wire [(GENERAL_DATA_WIDTH-1):0] GENERAL_REG_ARG, GENERAL_REG_INSTR;
 wire [(GENERAL_ADDR_WIDTH-1):0] GENERAL_REG_JUMP, GENERAL_REG_PC;
 // ----------------------------------------------------------------------------
+//block 3
+wire [(GENERAL_ADDR_WIDTH-1):0] GENERAL_REG_TOS;
+//controls
+wire GENERAL_CTRL_REG_TOS_FUNCTION, GENERAL_SEL_SOMADOR_SUBTRATOR, GENERAL_CTRL_STACK_FUNCTION;
+//outputs
+wire [(GENERAL_ADDR_WIDTH-1):0] GENERAL_STACK_TOS_OUT;
+// ----------------------------------------------------------------------------
 BLOCK_ULA_OPS #(
     .DATA_WIDTH (GENERAL_DATA_WIDTH),
     .ADDR_WIDTH (GENERAL_ADDR_WIDTH),
@@ -75,4 +82,21 @@ BLOCK_PC_INSTR_ARG #(
             .REG_JUMP_OUT (GENERAL_REG_JUMP),
             .REG_PC_OUT (GENERAL_REG_PC),
         );
+
+BLOCK_FUNCTIONS #(
+    .DATA_WIDTH (GENERAL_DATA_WIDTH),
+    .ADDR_WIDTH (GENERAL_ADDR_WIDTH)
+    ) block_3 (
+        .clk (general_clk),
+        .reset (general_reset),
+        .STACK_FUNCTION_IN (GENERAL_REG_PC),
+        .STACK_TOS_IN (GENERAL_REG_TOS),
+        //CONTROLS
+        .CTRL_REG_TOS_FUNCTION (GENERAL_CTRL_REG_TOS_FUNCTION),
+        .CTRL_STACK_FUNCTION (GENERAL_CTRL_STACK_FUNCTION),
+        .SEL_SOMADOR_SUBTRATOR (GENERAL_SEL_SOMADOR_SUBTRATOR),
+        //outputs
+        .STACK_FUNCTION_OUT (GENERAL_STACK_FUNCTION_OUT),
+        .STACK_TOS_OUT (GENERAL_STACK_TOS_OUT)
+    );
 endmodule
