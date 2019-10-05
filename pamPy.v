@@ -1,7 +1,8 @@
 module pamPy #(
     parameter GENERAL_DATA_WIDTH = 8,
     parameter GENERAL_ADDR_WIDTH = 12,
-    parameter GENERAL_ULA_WIDTH = 24
+    parameter GENERAL_ULA_WIDTH = 24,
+    parameter GENERAL_INSTRUCTION_WIDTH = 16
     )(
         input general_clk, general_reset
     );
@@ -13,16 +14,21 @@ wire [(GENERAL_DATA_WIDTH-1):0] GENERAL_MUX_REG2_IN_0; // regArg
 wire [(GENERAL_ADDR_WIDTH-1):0] GENERAL_MUX_REG2_IN_1; // tos
 wire [(GENERAL_ADDR_WIDTH-1):0] GENERAL_MUX_REG2_IN_2; // pc
 wire [(GENERAL_DATA_WIDTH-1):0] GENERAL_REG2_IN;
-
+    // CONTROLS
 wire [1:0] GENERAL_SEL_MUX_OP1, GENERAL_SEL_MUX_OP2;
 wire GENERAL_CTRL_REG_OP1, GENERAL_CTRL_REG_OP2;
 wire [3:0] GENERAL_SEL_ULA;
-
+    //outputs
 wire [(GENERAL_ULA_WIDTH-1):0] GENERAL_ULA_OUT;
 wire GENERAL_REG_OVERFLOW_OUT, GENERAL_REG_COMP_OUT;
 // ----------------------------------------------------------------------------
 //block 2
-
+wire [(GENERAL_ADDR_WIDTH-1):0] GENERAL_STACK_FUNCTION_OUT;
+    // CONTROLS
+wire GENERAL_CTRL_REG_ARG, GENERAL_CTRL_REG_INSTR, GENERAL_CTRL_REG_JUMP, GENERAL_CTRL_REG_PC, GENERAL_SEL_MUX_PC;
+    //outputs
+wire [(GENERAL_DATA_WIDTH-1):0] GENERAL_REG_ARG, GENERAL_REG_INSTR;
+wire [(GENERAL_ADDR_WIDTH-1):0] GENERAL_REG_JUMP, GENERAL_REG_PC;
 // ----------------------------------------------------------------------------
 BLOCK_ULA_OPS #(
     .DATA_WIDTH (GENERAL_DATA_WIDTH),
@@ -46,5 +52,27 @@ BLOCK_ULA_OPS #(
         .REG_COMP_OUT (GENERAL_REG_COMP_OUT),
         .REG_OVERFLOW_OUT (GENERAL_REG_OVERFLOW_OUT),
         .ULA_OUT (GENERAL_ULA_OUT)
+        );
+
+BLOCK_PC_INSTR_ARG #(
+    .DATA_WIDTH (GENERAL_DATA_WIDTH),
+    .ADDR_WIDTH (GENERAL_ADDR_WIDTH),
+    .ULA_WIDTH (GENERAL_ULA_WIDTH),
+    .INSTRUCTION_WIDTH (GENERAL_INSTRUCTION_WIDTH)
+    ) block_2 (
+            .clk (general_clk),
+            .MUX_IN_0 (GENERAL_ULA_OUT),
+            .MUX_IN_1 (GENERAL_STACK_FUNCTION_OUT),
+            // CONTROLS
+            .CTRL_REG_ARG (GENERAL_CTRL_REG_ARG),
+            .CTRL_REG_INSTR (GENERAL_CTRL_REG_INSTR),
+            .CTRL_REG_JUMP (GENERAL_CTRL_REG_JUMP),
+            .CTRL_REG_PC (GENERAL_CTRL_REG_PC),
+            .SEL_MUX (GENERAL_SEL_MUX_PC),
+            //outputs
+            .REG_ARG_OUT (GENERAL_REG_ARG),
+            .REG_INSTR_OUT (GENERAL_REG_INSTR),
+            .REG_JUMP_OUT (GENERAL_REG_JUMP),
+            .REG_PC_OUT (GENERAL_REG_PC),
         );
 endmodule
