@@ -60,12 +60,12 @@ wire [(ULA_WIDTH-1):0] ULA_LOGIC_NOT, ULA_LOGIC_AND, ULA_LOGIC_OR, ULA_LOGIC_XOR
     assign ULA_MATH_ADD = ULA_IN_2 + ULA_IN_1;
     assign ULA_MATH_SUB = ULA_IN_2 - ULA_IN_1;
     assign ULA_MATH_MULT = ULA_IN_2 * ULA_IN_1;
-    assign ULA_MATH_DIV = 12;
+    assign ULA_MATH_DIV = {ULA_WIDTH{1'b0}};
     assign ULA_DATA1 = ULA_IN_1;
     assign ULA_DATA2 = ULA_IN_2;
-    assign ULA_MATH_PLUS1 = ULA_IN_2 + 1;
-    assign ULA_MATH_LESS1 = ULA_IN_2 - 1;
-    assign ULA_MATH_PLUS2 = ULA_IN_2 + 2;
+    assign ULA_MATH_PLUS1 = ULA_IN_2 + {ULA_WIDTH{1'b1}};
+    assign ULA_MATH_LESS1 = ULA_IN_2 - {ULA_WIDTH{1'b1}};
+    assign ULA_MATH_PLUS2 = ULA_IN_2 + {ULA_WIDTH/2{2'b10}};
     assign ULA_COMP_EQUAL = (ULA_IN_2 == ULA_IN_1) ? 1'b1 :
                             1'b0;
     assign ULA_COMP_BIGGER = (ULA_IN_2 > ULA_IN_1) ? 1'b1 :
@@ -90,7 +90,7 @@ wire [(ULA_WIDTH-1):0] ULA_LOGIC_NOT, ULA_LOGIC_AND, ULA_LOGIC_OR, ULA_LOGIC_XOR
                      (SEL_ULA == 4'b1101) ? ULA_LOGIC_AND :
                      (SEL_ULA == 4'b1110) ? ULA_LOGIC_OR :
                      (SEL_ULA == 4'b1111) ? ULA_LOGIC_XOR :
-                     24;
+                     {ULA_WIDTH{1'b0}};
 
     assign ULA_COMP_OUT = (SEL_ULA == 4'b1001) ? ULA_COMP_EQUAL :
                           (SEL_ULA == 4'b1010) ? ULA_COMP_SMALLER :
@@ -103,17 +103,17 @@ wire [(ULA_WIDTH-1):0] ULA_LOGIC_NOT, ULA_LOGIC_AND, ULA_LOGIC_OR, ULA_LOGIC_XOR
                               1'b0;
     // -------------------------------
     // muxes
-    assign MUX1_OUT = (SEL_MUX1 == 2'b00) ? 0 :
-                      (SEL_MUX1 == 2'b01) ? 1 :
+    assign MUX1_OUT = (SEL_MUX1 == 2'b00) ? {ULA_WIDTH{1'b0}} :
+                      (SEL_MUX1 == 2'b01) ? {ULA_WIDTH{1'b1}} :
                       (SEL_MUX1 == 2'b10) ? MUX_REG1_IN :   // REG JUMP
                       (SEL_MUX1 == 2'b11) ? REG1_OUT :      // regOp1
-                      0;
+                      {ULA_WIDTH{1'b0}};
 
     assign MUX2_OUT = (SEL_MUX2 == 2'b00) ? MUX_REG2_IN_2 :   // REG PC
                       (SEL_MUX2 == 2'b01) ? MUX_REG2_IN_1 :
                       (SEL_MUX2 == 2'b10) ? MUX_REG2_IN_0 :
                       (SEL_MUX2 == 2'b11) ? REG2_OUT :      // regOp2
-                      0;
+                      {ULA_WIDTH{1'b0}};
     // --------------------------------
     // CONNECTIONS
     assign ULA_IN_1 = MUX1_OUT;

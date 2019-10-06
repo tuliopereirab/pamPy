@@ -25,7 +25,7 @@ module INSTRUCTION_MEMORY
 
 	initial
 	begin
-		//$readmemb("single_port_rom_init.txt", rom);
+		//$readmemb("MEMORY_INICIALIZATION/1.txt", rom);
 	end
 
 	always @ (posedge clk_mem)

@@ -14,6 +14,8 @@ module BLOCK_PC_INSTR_ARG #(
         // CONTROLS
         input CTRL_REG_ARG, CTRL_REG_INSTR, CTRL_REG_JUMP, CTRL_REG_PC, SEL_MUX
     );
+
+    wire [(INSTRUCTION_WIDTH+DATA_WIDTH-1):0] CONCATENATE_REG_ARG_MEM_FULL;
     wire [(ADDR_WIDTH-1):0] MUX_OUT;
     wire [(DATA_WIDTH-1):0] MEM_ARG_OUT, MEM_INSTR_OUT;
     wire [(INSTRUCTION_WIDTH-1):0] MEM_FULL_OUT;
@@ -30,10 +32,12 @@ module BLOCK_PC_INSTR_ARG #(
             REG_INSTR_OUT <= MEM_INSTR_OUT;
     end
 
+    // concatenate reg_arg_out and mem_full_out
+    assign CONCATENATE_REG_ARG_MEM_FULL = {REG_ARG_OUT, MEM_FULL_OUT};
     always @ (posedge clk)      // regJump
     begin
         if(CTRL_REG_JUMP)
-            REG_JUMP_OUT <= {REG_ARG_OUT, MEM_FULL_OUT};
+            REG_JUMP_OUT <= CONCATENATE_REG_ARG_MEM_FULL[(ADDR_WIDTH-1):0];
     end
 
     always @ (posedge clk)      // regPC
@@ -44,7 +48,7 @@ module BLOCK_PC_INSTR_ARG #(
 
 
     //---------------------
-    assign MUX_OUT = (SEL_MUX == 1'b0) ? MUX_IN_0 :
+    assign MUX_OUT = (SEL_MUX == 1'b0) ? MUX_IN_0[(ADDR_WIDTH-1):0] :
                      MUX_IN_1;
     //---------------------
     INSTRUCTION_MEMORY #(

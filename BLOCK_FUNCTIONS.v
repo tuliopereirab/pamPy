@@ -28,8 +28,8 @@ module BLOCK_FUNCTIONS #(
             REG_DATA_RETURN_OUT <= REG_DATA_RETURN_IN;
     end
 
-    assign SOMADOR_SUBTRATOR_OUT = (SEL_SOMADOR_SUBTRATOR == 1'b0) ? (REG_TOS_FUNCTION_OUT+1) :
-                                   (REG_TOS_FUNCTION_OUT-1);
+    assign SOMADOR_SUBTRATOR_OUT = (SEL_SOMADOR_SUBTRATOR == 1'b0) ? (REG_TOS_FUNCTION_OUT + {ADDR_WIDTH{1'b1}}) :
+                                   (REG_TOS_FUNCTION_OUT - {ADDR_WIDTH{1'b1}});
 
     STACK_MEMORY #(
         .DATA_WIDTH_MEM (ADDR_WIDTH),
@@ -54,6 +54,6 @@ module BLOCK_FUNCTIONS #(
             //controls
             .CTRL_MEM_WRITE (CTRL_STACK_FUNCTION),
             //outputs
-            .DATA_OUT (STACK_FUNCTION_OUT)
+            .DATA_OUT (STACK_TOS_OUT)
         );
 endmodule
