@@ -1,17 +1,7 @@
-MuxOp1:
-
-00 -> zero        (nada)
-01 -> um          (nada)
-10 -> regJump
-11 -> regOp1
-
------------------
 MuxOp2:
 
-00 -> regPc
-01 -> regTos
-10 -> regArg
-11 -> regOp2
+0 -> regArg
+1 -> regRead_STACK
 
 -----------------
 MuxPilha:
@@ -24,8 +14,10 @@ MuxPilha:
 -----------------
 MuxPC:
 
-0 -> Ula
-1 -> PilhaFuncao
+00 -> somado PC
+01 -> regJump
+10 -> ----
+11 -> PilhaFuncao
 
 -----------------
 MuxTos:
