@@ -1,17 +1,12 @@
 LISTA DE INTRUÇÕES:
 00000000    - NOP                   - doesn't do anything
 00000001    - POP_TOP               - Removes the top-of-stack (TOS) item.
-00000010    - POP_BLOCK             - Removes a block from the stack (it needs to insert a block previously)
 00000011    - ROT_TWO               - Swaps the two top-most stack items.
 
 00001100    - LOAD_CONST            - insert a constant onto the stack
 00001101    - LOAD_FAST             - pulls data from a memory address and insert onto the stack
-00001110    - LOAD_GLOBAL           - MISS UNDERSTANDING
 
 00001111    - STORE_FAST            - saves the top-of-stack (TOS) into a memory address
-
-    - PRINT_ITEM:                   - NOT IMPLEMENTED
-    - PRINT_NEWLINE                 - NOT IMPLEMENTED
 
 11000000    - COMPARE_OP            - compares two values using the comparison and saves TRUE or FALSE onto the stack
         - 00011000 - equal to                   (==)
@@ -26,21 +21,15 @@ LISTA DE INTRUÇÕES:
 00110010    - JUMP_FORWARD          - executes a branch adding a DELTA into the PC
 00110011    - JUMP_ABSOLUTE         - swaps the PC value with the argument value
 
-    - SETUP_LOOP
-    - GET_ITER
-    - FOR_ITER
-
-00101000    - INPLACE_ADD
+00101000    - INPLACE_ADD               - NOT IMPLEMENTED 
 00100000    - BINARY_ADD
 00100001    - BINARY_SUBTRACT
 00100010    - BINARY_MULTIPLY
-00100011    - BINARY_DIVIDE     - NÃO IMPLEMENTADO
 00101101    - BINARY_AND
 00101110    - BINARY_OR
 00101111    - BINARY_XOR
 01010000    - BINARY_LSHIFT
 01010001    - BINARY_RSHIFT
-
 
 01111100    - UNARY_NOT
 
@@ -48,5 +37,13 @@ LISTA DE INTRUÇÕES:
 01100001    - RETURN_VALUE
 
 
-----------------------------
-DELETE_FAST: do not necessary because when it's needed to store a new value into a memory position, the previous value is swapped
+------------------------------------------------------------------------------------
+POP_BLOCK       - Removes a block from the stack (it needs to insert a block previously) - NOT IMPLEMENTED YET
+SETUP_LOOP      - NOT IMPLEMENTED YET
+GET_ITER        - NOT IMPLEMENTED YET
+FOR_ITER        - NOT IMPLEMENTED YET
+DELETE_FAST     - do not necessary because when it's needed to store a new value into a memory position, the previous value is swapped
+PRINT_ITEM      - do not necessary because it won't print anything - NOT IMPLEMENTED
+PRINT_NEWLINE   - do not  necessary because it won't print anything - NOT IMPLEMENTED
+LOAD_GLOBAL     - NOT IMPLEMENTED
+BINARY_DIVIDE   - too much impact in the architecture frequency - NOT IMPLEMENTED
