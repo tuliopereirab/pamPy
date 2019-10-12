@@ -3,16 +3,16 @@ ULA:
 0000 -> +
 0001 -> -
 0010 -> *
-0011 -> /
-0100 -> +0 data_in_1      (regJump)
-0101 -> +0 data_in_2      (regPc, regArg)
-0110 -> +1    (sempre data_in_2)
-0111 -> -1    (sempre data_in_2)
-1000 -> +2 data_in_2
-1001 -> igual
-1010 -> menor que
-1011 -> maior que
-1100 -> NOT             -> NÃO UTILIZADO
-1101 -> AND
-1110 -> OR
-1111 -> XOR
+0011 -> LSHIFT
+0100 -> RSHIFT
+0101 -> OR
+0110 -> AND
+0111 -> XOR
+1000 -> NOT             (DATA_IN_1)
+1001 -> equal to
+1010 -> not equal to
+1011 -> greater than
+1100 -> less than
+1101 -> greater than or equal to
+1110 -> less than or equal to
+1111 -> passa DATA_IN_2       (regArg)
