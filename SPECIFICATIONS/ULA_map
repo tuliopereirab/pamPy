@@ -15,4 +15,4 @@ ULA:
 1100 -> less than
 1101 -> greater than or equal to
 1110 -> less than or equal to
-1111 -> passa DATA_IN_2       (regArg)
+1111 -> ---

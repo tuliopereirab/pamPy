@@ -12,8 +12,8 @@ module CONTROL_UNIT #(
         //outputs
         output reg CTRL_REG_TOS_FUNCTION, SEL_SOMADOR_SUBTRATOR, CTRL_STACK_FUNCTION, CTRL_REG_DATA_RETURN,
         output reg [(DATA_WIDTH-1):0] STACK_OUT,
-        output reg [1:0] SEL_MUX_OP1, SEL_MUX_OP2,
         output reg CTRL_REG_OP1, CTRL_REG_OP2,
+        output reg CTRL_STACK_COMP,
         output reg [3:0] SEL_ULA,
         output reg CTRL_REG_ARG, CTRL_REG_INSTR, CTRL_REG_JUMP, CTRL_REG_PC, SEL_MUX_PC
     );
