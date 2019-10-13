@@ -1,17 +1,19 @@
 module BLOCK_STACK_TOS #(
     parameter DATA_WIDTH = 8,
-    parameter ADDR_WIDTH = 12,
-    parameter ULA_WIDTH = 24
+    parameter ADDR_WIDTH = 12
     )(
         input clk, reset,
-        input [(DATA_WIDTH-1):0] MUX_STACK_IN_0,       // REG ARG
-        input [(DATA_WIDTH-1):0] MUX_STACK_IN_2,       // REG DATA DATA_RETURN
-        input [(ULA_WIDTH-1):0] MUX_STACK_TOS_IN_3,       // ULA OUT - USED FOR TOS MUX AS INPUT 0
-        input [(ADDR_WIDTH-1):0] REG_ADDR_IN,         // REG JUMP
+        input [(DATA_WIDTH-1):0] MUX_STACK_IN_0,       // ula
+        input [(DATA_WIDTH-1):0] MUX_STACK_IN_2,       // reg data return'
+        input [(DATA_WIDTH-1):0] MUX_STACK_IN_3,        // reg arg
+        input [(ADDR_WIDTH-1):0] MEMORY_ADDR_IN,         // REG JUMP
         input [(ADDR_WIDTH-1):0] MUX_TOS_IN_1,        // STACK_TOS_RETURN
         //controls
-        input [1:0] SEL_MUX_STACK, CTRL_REG_MEM_EXT, CTRL_REG_STACK,
-        input SEL_MUX_TOS, CTRL_REG_TOS, CTRL_STACK, CTRL_MEM_EXT, CTRL_REG_ADDR,
+        input [2:0] SEL_MUX_STACK,
+        input CTRL_REG_READ_STACK, CTRL_REG_WRITE_STACK,
+        input CTRL_REG_READ_MEM, CTRL_REG_WRITE_MEM,
+        input SEL_MUX_TOS, CTRL_REG_TOS, SEL_TOS_UPDATER,
+        input CTRL_STACK, CTRL_MEM_EXT,
         //outputs
         output reg [(DATA_WIDTH-1):0] REG_STACK_OUT_READ,
         output reg [(ADDR_WIDTH-1):0] REG_TOS_OUT
@@ -19,15 +21,14 @@ module BLOCK_STACK_TOS #(
 wire [(DATA_WIDTH-1):0] MUX_STACK_OUT;
 wire [(ADDR_WIDTH-1):0] MUX_TOS_OUT;
 wire [(DATA_WIDTH-1):0] STACK_OUT, MEM_EXT_OUT;
-reg [(DATA_WIDTH-1):0] REG_MEM_EXT_OUT_READ, REG_MEM_EXT_OUT_WRITE;
-reg [(DATA_WIDTH-1):0] REG_STACK_OUT_WRITE;
 reg [(ADDR_WIDTH-1):0] REG_ADDR_OUT;
+// regs memories
+reg [(DATA_WIDTH-1):0] REG_WRITE_STACK_OUT;
+reg [(DATA_WIDTH-1):0] REG_READ_MEMORY_OUT, REG_WRITE_MEMORY_OUT;
+// tos updater
+wire [(ADDR_WIDTH-1):0] TOS_UPDATER_OP_ADD, TOS_UPDATER_OP_SUB, TOS_UPDATER_OUT;
 
-    always @ (posedge clk)      // REG ADDR
-    begin
-        if(CTRL_REG_ADDR)
-            REG_ADDR_OUT <= REG_ADDR_IN;
-    end
+
     always @ (posedge clk)      // REG TOS
     begin
         if(reset)
@@ -35,37 +36,48 @@ reg [(ADDR_WIDTH-1):0] REG_ADDR_OUT;
         else if(CTRL_REG_TOS)
             REG_TOS_OUT <= MUX_TOS_OUT;
     end
-    always @ (posedge clk)      // REG MEM EXT
+
+// --------------------------
+//STACK
+    always @ (posedge clk) // REG READ STACK
     begin
-        if(CTRL_REG_MEM_EXT == 2'b01)
-            REG_MEM_EXT_OUT_READ <= MEM_EXT_OUT;
-        else if(CTRL_REG_MEM_EXT == 2'b10)
-            REG_MEM_EXT_OUT_WRITE <= REG_STACK_OUT_READ;
-        else if(CTRL_REG_MEM_EXT == 2'b11)
-        begin
-            REG_MEM_EXT_OUT_READ <= MEM_EXT_OUT;
-            REG_MEM_EXT_OUT_WRITE <= REG_STACK_OUT_READ;
-        end
+        if(CTRL_REG_READ_STACK)
+            REG_STACK_OUT_READ <= STACK_OUT;
     end
-    always @ (posedge clk)      // REG STACK
+    always @ (posedge clk)          // reg write stack
     begin
-        if(CTRL_REG_STACK == 2'b01)
-            REG_STACK_OUT_READ <= STACK_OUT;
-        else if(CTRL_REG_STACK == 2'b10)
-            REG_STACK_OUT_WRITE <= MUX_STACK_OUT;
-        else if(CTRL_REG_STACK == 2'b11)
-        begin
-            REG_STACK_OUT_READ <= STACK_OUT;
-            REG_STACK_OUT_WRITE <= MUX_STACK_OUT;
-        end
+        if(CTRL_REG_WRITE_STACK)
+            REG_WRITE_STACK_OUT <= MUX_STACK_OUT;
     end
 
-    assign MUX_STACK_OUT =  (SEL_MUX_STACK == 2'b00) ? MUX_STACK_TOS_IN_3[(DATA_WIDTH-1):0] :
-                            (SEL_MUX_STACK == 2'b01) ? REG_MEM_EXT_OUT_READ :
-                            (SEL_MUX_STACK == 2'b10) ? MUX_STACK_IN_2 :
-                            MUX_STACK_IN_0;
-    assign MUX_TOS_OUT = (SEL_MUX_TOS == 1'b0) ? MUX_STACK_TOS_IN_3[(ADDR_WIDTH-1):0] :
-                         MUX_TOS_IN_1;
+// ----------------------------
+// MEM EXT
+    always @ (posedge clk) // REG READ STACK
+    begin
+        if(CTRL_REG_READ_MEM)
+            REG_READ_MEMORY_OUT <= MEM_EXT_OUT;
+    end
+    always @ (posedge clk)          // reg write stack
+    begin
+        if(CTRL_REG_WRITE_MEM)
+            REG_WRITE_MEMORY_OUT <= REG_STACK_OUT_READ;
+    end
+// ----------------------------
+// tos updater
+    assign TOS_UPDATER_OP_ADD = REG_TOS_OUT + 1;
+    assign TOS_UPDATER_OP_SUB = REG_TOS_OUT - 1;
+    assign TOS_UPDATER_OUT = (SEL_TOS_UPDATER == 1'b0) ? TOS_UPDATER_OP_ADD :
+                             TOS_UPDATER_OP_SUB;
+// ----------------------------
+    assign MUX_STACK_OUT =  (SEL_MUX_STACK == 3'b000) ? MUX_STACK_IN_0 :
+                            (SEL_MUX_STACK == 3'b001) ? REG_READ_MEMORY_OUT :
+                            (SEL_MUX_STACK == 3'b010) ? MUX_STACK_IN_2 :
+                            (SEL_MUX_STACK == 3'b011) ? MUX_STACK_IN_3 :
+                            (SEL_MUX_STACK == 3'b100) ? REG_STACK_OUT_READ :
+                            MUX_STACK_IN_0;     // most used
+
+    assign MUX_TOS_OUT = (SEL_MUX_TOS == 1'b0) ? TOS_UPDATER_OUT :
+                         MUX_TOS_IN_1;      // stack function return
 
 
     STACK_MEMORY #(
@@ -73,8 +85,8 @@ reg [(ADDR_WIDTH-1):0] REG_ADDR_OUT;
         .ADDR_WIDTH_MEM (ADDR_WIDTH)
         ) mem_ext (
             .clk_mem (clk),
-            .DATA_IN (REG_MEM_EXT_OUT_WRITE),
-            .ADDR_IN (REG_ADDR_OUT),
+            .DATA_IN (REG_WRITE_MEMORY_OUT),
+            .ADDR_IN (MEMORY_ADDR_IN),
             .CTRL_MEM_WRITE (CTRL_MEM_EXT),
             .DATA_OUT (MEM_EXT_OUT)
         );
@@ -84,7 +96,7 @@ reg [(ADDR_WIDTH-1):0] REG_ADDR_OUT;
         .ADDR_WIDTH_MEM (ADDR_WIDTH)
         ) stack (
             .clk_mem (clk),
-            .DATA_IN (REG_STACK_OUT_WRITE),
+            .DATA_IN (REG_WRITE_STACK_OUT),
             .ADDR_IN (REG_TOS_OUT),
             .CTRL_MEM_WRITE (CTRL_STACK),
             .DATA_OUT (STACK_OUT)
