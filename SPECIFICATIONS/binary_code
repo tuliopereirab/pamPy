@@ -8,20 +8,10 @@ LISTA DE INTRUÇÕES:
 
 00001111    - STORE_FAST            - saves the top-of-stack (TOS) into a memory address
 
-11000000    - COMPARE_OP            - compares two values using the comparison and saves TRUE or FALSE onto the stack
-        - 00011000 - equal to                   (==)
-        - 00011001 - not equal to               (!=)
-        - 00011010 - less than                  (<)
-        - 00011011 - greater than               (>)
-        - 00011100 - greater than or equal to   (>=)
-        - 00011101 - less than or equal to      (<=)
 
-00110000    - POP_JUMP_IF_FALSE     - executes a branch if the previous comparison is FALSE
-00110001    - POP_JUMP_IF_TRUE      - executes a branch if the previous comparison is TRUE
-00110010    - JUMP_FORWARD          - executes a branch adding a DELTA into the PC
-00110011    - JUMP_ABSOLUTE         - swaps the PC value with the argument value
+01111100    - UNARY_NOT
 
-00101000    - INPLACE_ADD               - NOT IMPLEMENTED 
+00101000    - INPLACE_ADD               - NOT IMPLEMENTED
 00100000    - BINARY_ADD
 00100001    - BINARY_SUBTRACT
 00100010    - BINARY_MULTIPLY
@@ -31,7 +21,19 @@ LISTA DE INTRUÇÕES:
 01010000    - BINARY_LSHIFT
 01010001    - BINARY_RSHIFT
 
-01111100    - UNARY_NOT
+
+11000000    - COMPARE_OP            - compares two values using the comparison and saves TRUE or FALSE onto the stack
+- 00011000 - equal to                   (==)
+- 00011001 - not equal to               (!=)
+- 00011010 - less than                  (<)
+- 00011011 - greater than               (>)
+- 00011100 - greater than or equal to   (>=)
+- 00011101 - less than or equal to      (<=)
+
+00110000    - POP_JUMP_IF_FALSE     - executes a branch if the previous comparison is FALSE
+00110001    - POP_JUMP_IF_TRUE      - executes a branch if the previous comparison is TRUE
+00110010    - JUMP_FORWARD          - executes a branch adding a DELTA into the PC
+00110011    - JUMP_ABSOLUTE         - swaps the PC value with the argument value
 
 01100000    - CALL_FUNCTION
 01100001    - RETURN_VALUE
