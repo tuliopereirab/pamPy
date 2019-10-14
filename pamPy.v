@@ -52,8 +52,7 @@ BLOCK_ULA_OPS #(
     .ADDR_WIDTH (GENERAL_ADDR_WIDTH)
     ) block_1 (
         .clk (general_clk),
-        .REG1_IN (GENERAL_STACK_OUT),
-        .REG2_IN (GENERAL_STACK_OUT),
+        .REG_IN (GENERAL_STACK_OUT),
         .TOS_IN (GENERAL_REG_TOS),
         // CONTROLS
         .CTRL_REG_OP1 (GENERAL_CTRL_REG_OP1),

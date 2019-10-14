@@ -3,8 +3,7 @@ module BLOCK_ULA_OPS #(
     parameter ADDR_WIDTH = 12
     ) (
         input clk,
-        input [(DATA_WIDTH-1):0] REG1_IN,
-        input [(DATA_WIDTH-1):0] REG2_IN,
+        input [(DATA_WIDTH-1):0] REG_IN,
         input [(ADDR_WIDTH-1):0] TOS_IN,        // regTOS
         output wire [(DATA_WIDTH-1):0] ULA_OUT,
         output wire STACK_COMP_OUT,
@@ -28,13 +27,13 @@ wire [(DATA_WIDTH-1):0] ULA_LOGIC_NOT, ULA_LOGIC_AND, ULA_LOGIC_OR, ULA_LOGIC_XO
     always @ (posedge clk) // REG_OP1
     begin
         if(CTRL_REG_OP1)
-            REG1_OUT <= REG1_IN;
+            REG1_OUT <= REG_IN;
     end
 
     always @ (posedge clk) // REG_OP2
     begin
         if(CTRL_REG_OP2)
-            REG2_OUT <= REG1_IN;
+            REG2_OUT <= REG_IN;
     end
 
     always @ (posedge clk) // REG_OVERFLOW

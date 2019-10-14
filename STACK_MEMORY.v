@@ -15,6 +15,7 @@ module STACK_MEMORY
 
 	// Variable to hold the registered read ADDR_INess
 	reg [ADDR_WIDTH_MEM-1:0] ADDR_IN_reg;
+	wire [ADDR_WIDTH_MEM-1:0] ADDR_IN_wire;
 
 	always @ (posedge clk_mem)
 	begin
@@ -24,10 +25,11 @@ module STACK_MEMORY
 
 		ADDR_IN_reg <= ADDR_IN;
 	end
+	assign ADDR_IN_wire = ADDR_IN;
 
 	// Continuous assignment implies read returns NEW DATA_IN.
 	// This is the natural behavior of the TriMatrix memory
 	// blocks in Single Port mode.
-	assign DATA_OUT = ram[ADDR_IN_reg];
+	assign DATA_OUT = ram[ADDR_IN_wire];
 
 endmodule

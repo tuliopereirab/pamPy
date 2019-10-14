@@ -43,27 +43,27 @@ module CONTROL_UNIT #(
         else
         begin
             case (STATE)
-                FIRST: STATE <= SECOND;
+                FIRST : STATE <= SECOND;
                 SECOND: begin
                     case (INSTR_IN)
-                        8'b00000000: STATE <= FIRST;        //NOP
-                        8'b00000001: STATE <= PT1;          // POP_TOP
-                        8'b00000011: STATE <= RT1;          // ROT_TWO
-                        8'b00001100: STATE <= LC1;          // LOAD_CONST
-                        8'b00001101: STATE <= LF1;          // LOAD_FAST
-                        8'b00001111: STATE <= SF1;          // STORE_FAST
-                        8'b01111100: STATE <= U1_B1_CO1;    //UNARY_NOT
-                        8'b00100000: STATE <= U1_B1_CO1;    //BINARY_ADD
-                        8'b00100001: STATE <= U1_B1_CO1;    //BINARY_SUBTRACT
-                        8'b00100010: STATE <= U1_B1_CO1;    //BINARY_MULTIPLY
-                        8'b00101101: STATE <= U1_B1_CO1;    //BINARY_AND
-                        8'b00101110: STATE <= U1_B1_CO1;    //BINARY_OR
-                        8'b00101111: STATE <= U1_B1_CO1;    //BINARY_XOR
-                        8'b01010000: STATE <= U1_B1_CO1;    //BINARY_LSHIFT
-                        8'b01010001: STATE <= U1_B1_CO1;    //BINARY_RSHIFT
-                        8'b11000000: STATE <= U1_B1_CO1;    //COMPARE_OP
-                        8'b00110010: STATE <= JF1_JA1_CF1;  //JUMP_FORWARD
-                        8'b00110011: STATE <= JF1_JA1_CF1;
+                        8'b00000000 : STATE <= FIRST;        //NOP
+                        8'b00000001 : STATE <= PT1;          // POP_TOP
+                        8'b00000011 : STATE <= RT1;          // ROT_TWO
+                        8'b00001100 : STATE <= LC1;          // LOAD_CONST
+                        8'b00001101 : STATE <= LF1;          // LOAD_FAST
+                        8'b00001111 : STATE <= SF1;          // STORE_FAST
+                        8'b01111100 : STATE <= U1_B1_CO1;    //UNARY_NOT
+                        8'b00100000 : STATE <= U1_B1_CO1;    //BINARY_ADD
+                        8'b00100001 : STATE <= U1_B1_CO1;    //BINARY_SUBTRACT
+                        8'b00100010 : STATE <= U1_B1_CO1;    //BINARY_MULTIPLY
+                        8'b00101101 : STATE <= U1_B1_CO1;    //BINARY_AND
+                        8'b00101110 : STATE <= U1_B1_CO1;    //BINARY_OR
+                        8'b00101111 : STATE <= U1_B1_CO1;    //BINARY_XOR
+                        8'b01010000 : STATE <= U1_B1_CO1;    //BINARY_LSHIFT
+                        8'b01010001 : STATE <= U1_B1_CO1;    //BINARY_RSHIFT
+                        8'b11000000 : STATE <= U1_B1_CO1;    //COMPARE_OP
+                        8'b00110010 : STATE <= JF1_JA1_CF1;  //JUMP_FORWARD
+                        8'b00110011 : STATE <= JF1_JA1_CF1;
                         8'b00110000: begin                  // POP_JUMP_IF_FALSE
                             if(COMPARE_IN == 1'b0)
                                 STATE <= PJ_PULA1;
@@ -76,35 +76,35 @@ module CONTROL_UNIT #(
                             else
                                 STATE <= PJ_FICA1;
                         end
-                        8'b01100000: STATE <= JF1_JA1_CF1;
-                        8'b01100001: STATE <= RV1;
-                        default: STATE <= ERROR;
+                        8'b01100000 : STATE <= JF1_JA1_CF1;
+                        8'b01100001 : STATE <= RV1;
+                        default : STATE <= ERROR;
                     endcase
                 end
                 //POP_TOP
-                PT1: STATE <= PT2;
-                PT2: STATE <= SECOND;
+                PT1 : STATE <= PT2;
+                PT2 : STATE <= SECOND;
                 //ROT_TWO
-                RT1: STATE <= RT2;
-                RT2: STATE <= RT3;
-                RT3: STATE <= RT4;
-                RT4: STATE <= RT5;
-                RT5: STATE <= RT6_LC3_LF5_U4_B6_CO6;
+                RT1 : STATE <= RT2;
+                RT2 : STATE <= RT3;
+                RT3 : STATE <= RT4;
+                RT4 : STATE <= RT5;
+                RT5 : STATE <= RT6_LC3_LF5_U4_B6_CO6;
                 // multiple states
-                RT6_LC3_LF5_U4_B6_CO6: STATE <= SECOND;
+                RT6_LC3_LF5_U4_B6_CO6 : STATE <= SECOND;
                 // ---------
                 // LOAD_CONST
-                LC1: STATE <= LC2;
-                LC2: STATE <= RT6_LC3_LF5_U4_B6_CO6;
+                LC1 : STATE <= LC2;
+                LC2 : STATE <= RT6_LC3_LF5_U4_B6_CO6;
                 // LOAD_FAST
-                LF1: STATE <= LF2;
-                LF2: STATE <= LF3;
-                LF3: STATE <= LF4;
-                LF4: STATE <= RT6_LC3_LF5_U4_B6_CO6;
+                LF1 : STATE <= LF2;
+                LF2 : STATE <= LF3;
+                LF3 : STATE <= LF4;
+                LF4 : STATE <= RT6_LC3_LF5_U4_B6_CO6;
                 //STORE_FAST
-                SF1: STATE <= SF2;
-                SF2: STATE <= SF3;
-                SF3: STATE <= RT6_LC3_LF5_U4_B6_CO6;
+                SF1 : STATE <= SF2;
+                SF2 : STATE <= SF3;
+                SF3 : STATE <= SECOND;
                 //UNARY
                 //multiple states
                 U1_B1_CO1:  if(INSTR_IN == 8'b01111100)      // UNARY_NOT
@@ -112,17 +112,17 @@ module CONTROL_UNIT #(
                             else
                                 STATE <= B2_CO2;            // BINARY or COMPARE_OP
                 //-------
-                U2: STATE <= U3;
-                U3: STATE <= RT6_LC3_LF5_U4_B6_CO6;
+                U2 : STATE <= U3;
+                U3 : STATE <= RT6_LC3_LF5_U4_B6_CO6;
                 //BINARY or COMPARE_OP
-                B2_CO2: STATE <= B3_CO3;
-                B3_CO3: STATE <= B4_CO4;
+                B2_CO2 : STATE <= B3_CO3;
+                B3_CO3 : STATE <= B4_CO4;
                 B4_CO4: if(INSTR_IN == 8'b11000000)       // COMPARE_OP
                             STATE <= CO5;
                         else
                             STATE <= B5;
-                B5: STATE <= RT6_LC3_LF5_U4_B6_CO6;
-                CO5: STATE <= RT6_LC3_LF5_U4_B6_CO6;
+                B5 : STATE <= RT6_LC3_LF5_U4_B6_CO6;
+                CO5 : STATE <= RT6_LC3_LF5_U4_B6_CO6;
                 // JUMP_FORWARD or JUMP_ABSOLUTE or CALL_FUNCTION
                 JF1_JA1_CF1:    if(INSTR_IN == 8'b00110010)    // JUMP_FORWARD
                                     STATE <= JF2;
@@ -131,30 +131,30 @@ module CONTROL_UNIT #(
                                 else
                                     STATE <= CF2;
                 // JUMP_FORWARD
-                JF2: STATE <= JF3;
-                JF3: STATE <= FIRST;
+                JF2 : STATE <= JF3;
+                JF3 : STATE <= FIRST;
                 // JUMP_ABSOLUTE;
-                JA2: STATE <= JA3_CF5;
-                JA3_CF5: STATE <= FIRST;
+                JA2 : STATE <= JA3_CF5;
+                JA3_CF5 : STATE <= FIRST;
                 // POP_JUMP
-                PJ_FICA1: STATE <= PJ_FICA2;
-                PJ_FICA2: STATE <= FIRST;
-                PJ_PULA1: STATE <= PJ_PULA2;
-                PJ_PULA2: STATE <= PJ_PULA3;
-                PJ_PULA3: STATE <= FIRST;
+                PJ_FICA1 : STATE <= PJ_FICA2;
+                PJ_FICA2 : STATE <= FIRST;
+                PJ_PULA1 : STATE <= PJ_PULA2;
+                PJ_PULA2 : STATE <= PJ_PULA3;
+                PJ_PULA3 : STATE <= FIRST;
                 // CALL_FUNCTION
-                CF2: STATE <= CF3;
-                CF3: STATE <= CF4;
-                CF4: STATE <= JA3_CF5;
+                CF2 : STATE <= CF3;
+                CF3 : STATE <= CF4;
+                CF4 : STATE <= JA3_CF5;
                 // RETURN_VALUE
-                RV1: STATE <= RV2;
-                RV2: STATE <= RV3;
-                RV3: STATE <= RV4;
-                RV4: STATE <= RV5;
-                RV5: STATE <= SECOND;
+                RV1 : STATE <= RV2;
+                RV2 : STATE <= RV3;
+                RV3 : STATE <= RV4;
+                RV4 : STATE <= RV5;
+                RV5 : STATE <= SECOND;
                 // ERROR
-                ERROR: STATE <= ERROR;
-                default: STATE <= ERROR;
+                ERROR : STATE <= ERROR;
+                default : STATE <= ERROR;
             endcase
         end
     end
@@ -817,7 +817,7 @@ module CONTROL_UNIT #(
                 SEL_MUX_STACK <= 3'b000;
             end
             B4_CO4: begin
-                CTRL_REG_OP2 <= 1'b0;
+                CTRL_REG_OP2 <= 1'b1;
                 SEL_MUX_STACK <= 3'b000;
                 case (INSTR_IN)
                     8'b11000000: begin   // COMPARE_OP
