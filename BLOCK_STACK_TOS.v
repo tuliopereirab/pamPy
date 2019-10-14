@@ -16,7 +16,8 @@ module BLOCK_STACK_TOS #(
         input CTRL_STACK, CTRL_MEM_EXT,
         //outputs
         output reg [(DATA_WIDTH-1):0] REG_STACK_OUT_READ,
-        output reg [(ADDR_WIDTH-1):0] REG_TOS_OUT
+        output reg [(ADDR_WIDTH-1):0] REG_TOS_OUT,
+        output wire [(DATA_WIDTH-1):0] TOP_STACK
     );
 wire [(DATA_WIDTH-1):0] MUX_STACK_OUT;
 wire [(ADDR_WIDTH-1):0] MUX_TOS_OUT;
@@ -27,6 +28,9 @@ reg [(DATA_WIDTH-1):0] REG_WRITE_STACK_OUT;
 reg [(DATA_WIDTH-1):0] REG_READ_MEMORY_OUT, REG_WRITE_MEMORY_OUT;
 // tos updater
 wire [(ADDR_WIDTH-1):0] TOS_UPDATER_OP_ADD, TOS_UPDATER_OP_SUB, TOS_UPDATER_OUT;
+// -----------------------------------------
+assign TOP_STACK = STACK_OUT;
+// -----------------------------------------
 
 
     always @ (posedge clk)      // REG TOS

@@ -4,7 +4,8 @@ module pamPy #(
     parameter GENERAL_INSTRUCTION_WIDTH = 16
     )(
         input general_clk, general_reset,
-        output wire [(GENERAL_ADDR_WIDTH-1):0] GENERAL_PC_OUT
+        output wire [(GENERAL_ADDR_WIDTH-1):0] GENERAL_PC_OUT,
+        output wire [(GENERAL_DATA_WIDTH-1):0] GENERAL_INSTR_OUT, GENERAL_ARG_OUT, TOP_STACK_OUT
     );
 
 // block 1
@@ -43,6 +44,8 @@ wire GENERAL_SEL_TOS_UPDATER;
 wire GENERAL_SEL_MUX_TOS, GENERAL_CTRL_REG_TOS, GENERAL_CTRL_STACK, GENERAL_CTRL_MEM_EXT;
 // ----------------------------------------------------------------------------
 assign GENERAL_PC_OUT = GENERAL_REG_PC;
+assign GENERAL_INSTR_OUT = GENERAL_REG_INSTR;
+assign GENERAL_ARG_OUT = GENERAL_REG_ARG;
 // ----------------------------------------------------------------------------
 BLOCK_ULA_OPS #(
     .DATA_WIDTH (GENERAL_DATA_WIDTH),
@@ -127,7 +130,8 @@ BLOCK_STACK_TOS #(
         .CTRL_MEM_EXT (GENERAL_CTRL_MEM_EXT),
         // outputs
         .REG_STACK_OUT_READ (GENERAL_STACK_OUT),
-        .REG_TOS_OUT (GENERAL_REG_TOS)
+        .REG_TOS_OUT (GENERAL_REG_TOS),
+        .TOP_STACK (TOP_STACK_OUT)
     );
 
 CONTROL_UNIT #(
