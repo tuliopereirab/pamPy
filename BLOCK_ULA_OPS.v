@@ -58,10 +58,10 @@ wire [(DATA_WIDTH-1):0] ULA_LOGIC_NOT, ULA_LOGIC_AND, ULA_LOGIC_OR, ULA_LOGIC_XO
     // ula
     assign ULA_MATH_ADD = ULA_IN_2 + ULA_IN_1;
     assign ULA_MATH_SUB = ULA_IN_2 - ULA_IN_1;
-    assign ULA_MATH_MULT = {DATA_WIDTH/5{ULA_IN_2 * ULA_IN_1}};
+    assign ULA_MATH_MULT = ULA_IN_2 * ULA_IN_1;
 
-    assign ULA_RSHIFT = {DATA_WIDTH/5{ULA_IN_2 >> ULA_IN_1}};
-    assign ULA_LSHIFT = {DATA_WIDTH/5{ULA_IN_2 << ULA_IN_1}};
+    assign ULA_RSHIFT = ULA_IN_2 >> ULA_IN_1;
+    assign ULA_LSHIFT = ULA_IN_2 << ULA_IN_1;
 
     assign ULA_COMP_EQUAL = (ULA_IN_2 == ULA_IN_1) ? 1'b1 :
                             1'b0;

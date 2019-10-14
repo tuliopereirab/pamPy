@@ -53,8 +53,8 @@ module BLOCK_PC_INSTR_ARG #(
     assign FORWARD_ADDER_OUT = REG_PC_OUT + REG_JUMP_OUT;
 // --------------------------------
 // PC_UPDATER
-    assign PC_UPDATER_OP_1 = {ADDR_WIDTH/13{REG_PC_OUT + 1}};
-    assign PC_UPDATER_OP_2 = {ADDR_WIDTH/13{REG_PC_OUT + 2}};
+    assign PC_UPDATER_OP_1 = REG_PC_OUT + {ADDR_WIDTH{1'b1}};
+    assign PC_UPDATER_OP_2 = REG_PC_OUT + {ADDR_WIDTH/2{2'b10}};
 
     assign PC_UPDATER_OUT = (SEL_PC_UPDATER == 1'b0) ? PC_UPDATER_OP_1 :
                             PC_UPDATER_OP_2;

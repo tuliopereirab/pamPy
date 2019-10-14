@@ -4,7 +4,7 @@ module pamPy #(
     parameter GENERAL_INSTRUCTION_WIDTH = 16
     )(
         input general_clk, general_reset,
-        output wire GENERAL_PC_OUT
+        output wire [(GENERAL_ADDR_WIDTH-1):0] GENERAL_PC_OUT
     );
 
 // block 1
