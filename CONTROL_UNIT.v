@@ -25,16 +25,16 @@ module CONTROL_UNIT #(
     );
 
     // states
-    parameter FIRST = 0, SECOND = 1, PT1 = 2, PT2 = 3;
-    parameter RT1 = 4, RT2 = 5, RT3 = 6, RT4 = 7, RT5 = 8, RT6_LC3_LF5_U4_B6_CO6 = 9;
-    parameter LC1 = 10, LC2 = 11, LF1 = 12, LF2 = 13, LF3 = 14, LF4 = 15;
-    parameter SF1 = 16, SF2 = 17, SF3 = 18, U1_B1_CO1 = 19, U2 = 20, U3 = 21;
-    parameter B2_CO2 = 22, B3_CO3 = 23, B4_CO4 = 24, B5 = 25, CO5 = 26;
-    parameter JF1_JA1_CF1 = 27, JF2 = 28, JF3 = 29, JA2 = 30, JA3_CF5 = 31;
-    parameter CF2 = 32, CF3 = 33, CF4 = 34, RV1 = 35, RV2 = 36, RV3 = 37, RV4 = 38, RV5 = 39;
+    localparam FIRST = 0, SECOND = 1, PT1 = 2, PT2 = 3;
+    localparam RT1 = 4, RT2 = 5, RT3 = 6, RT4 = 7, RT5 = 8, RT6_LC3_LF5_U4_B6_CO6 = 9;
+    localparam LC1 = 10, LC2 = 11, LF1 = 12, LF2 = 13, LF3 = 14, LF4 = 15;
+    localparam SF1 = 16, SF2 = 17, SF3 = 18, U1_B1_CO1 = 19, U2 = 20, U3 = 21;
+    localparam B2_CO2 = 22, B3_CO3 = 23, B4_CO4 = 24, B5 = 25, CO5 = 26;
+    localparam JF1_JA1_CF1 = 27, JF2 = 28, JF3 = 29, JA2 = 30, JA3_CF5 = 31;
+    localparam CF2 = 32, CF3 = 33, CF4 = 34, RV1 = 35, RV2 = 36, RV3 = 37, RV4 = 38, RV5 = 39;
     // states pop_jump and error
-    parameter PJ_FICA1 = 40, PJ_FICA2 = 41, PJ_PULA1 = 42, PJ_PULA2 = 43, PJ_PULA3 = 44;
-    parameter ERROR = 99;
+    localparam PJ_FICA1 = 40, PJ_FICA2 = 41, PJ_PULA1 = 42, PJ_PULA2 = 43, PJ_PULA3 = 44;
+    localparam ERROR = 99;
     reg [31:0] STATE;
 
     always @ (posedge clk) begin
@@ -107,7 +107,7 @@ module CONTROL_UNIT #(
                 SF3: STATE <= RT6_LC3_LF5_U4_B6_CO6;
                 //UNARY
                 //multiple states
-                U1_B1_CO1:  if(INSTR_IN == 1'b01111100)      // UNARY_NOT
+                U1_B1_CO1:  if(INSTR_IN == 8'b01111100)      // UNARY_NOT
                                 STATE <= U2;
                             else
                                 STATE <= B2_CO2;            // BINARY or COMPARE_OP
@@ -117,16 +117,16 @@ module CONTROL_UNIT #(
                 //BINARY or COMPARE_OP
                 B2_CO2: STATE <= B3_CO3;
                 B3_CO3: STATE <= B4_CO4;
-                B4_CO4: if(INSTR_IN == 1'b11000000)       // COMPARE_OP
+                B4_CO4: if(INSTR_IN == 8'b11000000)       // COMPARE_OP
                             STATE <= CO5;
                         else
                             STATE <= B5;
                 B5: STATE <= RT6_LC3_LF5_U4_B6_CO6;
                 CO5: STATE <= RT6_LC3_LF5_U4_B6_CO6;
                 // JUMP_FORWARD or JUMP_ABSOLUTE or CALL_FUNCTION
-                JF1_JA1_CF1:    if(INSTR_IN == 1'b00110010)    // JUMP_FORWARD
+                JF1_JA1_CF1:    if(INSTR_IN == 8'b00110010)    // JUMP_FORWARD
                                     STATE <= JF2;
-                                else if(INSTR_IN == 1'b00110011) // JUMP_ABSOLUTE
+                                else if(INSTR_IN == 8'b00110011) // JUMP_ABSOLUTE
                                     STATE <= JA2;
                                 else
                                     STATE <= CF2;
