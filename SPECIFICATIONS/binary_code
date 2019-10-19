@@ -38,6 +38,8 @@ LISTA DE INTRUÇÕES:
 01100000    - CALL_FUNCTION
 01100001    - RETURN_VALUE
 
+11111111    - FINISH EXECUTION
+
 
 ------------------------------------------------------------------------------------
 POP_BLOCK       - Removes a block from the stack (it needs to insert a block previously) - NOT IMPLEMENTED YET

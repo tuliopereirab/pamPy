@@ -14,7 +14,7 @@ module STACK_MEMORY
 	reg [DATA_WIDTH_MEM-1:0] ram[2**ADDR_WIDTH_MEM-1:0];
 
 	// Variable to hold the registered read ADDR_INess
-	reg [ADDR_WIDTH_MEM-1:0] ADDR_IN_reg;
+	//reg [ADDR_WIDTH_MEM-1:0] ADDR_IN_reg;
 	wire [ADDR_WIDTH_MEM-1:0] ADDR_IN_wire;
 
 	always @ (posedge clk_mem)
@@ -23,7 +23,7 @@ module STACK_MEMORY
 		if (CTRL_MEM_WRITE)
 			ram[ADDR_IN] <= DATA_IN;
 
-		ADDR_IN_reg <= ADDR_IN;
+		//ADDR_IN_reg <= ADDR_IN;
 	end
 	assign ADDR_IN_wire = ADDR_IN;
 

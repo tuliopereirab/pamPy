@@ -21,7 +21,8 @@ module CONTROL_UNIT #(
         output reg SEL_MUX_TOS,
         output reg CTRL_REG_TOS,
         output reg [2:0] SEL_MUX_STACK,
-        output reg [1:0] SEL_MUX_PC
+        output reg [1:0] SEL_MUX_PC,
+        output reg FINISH_SIGN
     );
 
     // states
@@ -35,6 +36,7 @@ module CONTROL_UNIT #(
     // states pop_jump and error
     localparam PJ_FICA1 = 40, PJ_FICA2 = 41, PJ_PULA1 = 42, PJ_PULA2 = 43, PJ_PULA3 = 44;
     localparam ERROR = 99;
+    localparam FINISH = 100;
     reg [31:0] STATE;
 
     always @ (posedge clk) begin
@@ -78,6 +80,7 @@ module CONTROL_UNIT #(
                         end
                         8'b01100000 : STATE <= JF1_JA1_CF1;
                         8'b01100001 : STATE <= RV1;
+                        8'b11111111 : STATE <= FINISH;
                         default : STATE <= ERROR;
                     endcase
                 end
@@ -104,7 +107,7 @@ module CONTROL_UNIT #(
                 //STORE_FAST
                 SF1 : STATE <= SF2;
                 SF2 : STATE <= SF3;
-                SF3 : STATE <= SECOND;
+                SF3 : STATE <= FIRST;
                 //UNARY
                 //multiple states
                 U1_B1_CO1:  if(INSTR_IN == 8'b01111100)      // UNARY_NOT
@@ -152,6 +155,8 @@ module CONTROL_UNIT #(
                 RV3 : STATE <= RV4;
                 RV4 : STATE <= RV5;
                 RV5 : STATE <= SECOND;
+                // FINISH
+                FINISH : STATE <= FINISH;
                 // ERROR
                 ERROR : STATE <= ERROR;
                 default : STATE <= ERROR;
@@ -1427,6 +1432,35 @@ module CONTROL_UNIT #(
                 CTRL_REG_TOS <= 1'b0;
                 SEL_MUX_STACK <= 3'b000;
             end
+            // FINISH
+            // -----------------------------------------
+            FINISH: begin
+                // ---------------------------------
+                SEL_MUX_PC <= 2'b00;
+                CTRL_REG_PC <= 1'b0;
+                SEL_PC_UPDATER <= 1'b0;
+                CTRL_REG_TOS_FUNCTION <= 1'b0;
+                SEL_SOMADOR_SUBTRATOR <= 1'b0;
+                CTRL_REG_JUMP <= 1'b0;
+                CTRL_STACK_FUNCTION <= 1'b0;
+                CTRL_REG_DATA_RETURN <= 1'b0;
+                SEL_TOS_UPDATER <= 1'b0;
+                CTRL_STACK <= 1'b0;
+                CTRL_MEM_EXT <= 1'b0;
+                CTRL_REG_OP1 <= 1'b0;
+                CTRL_REG_OP2 <= 1'b0;
+                CTRL_STACK_COMP <= 1'b0;
+                SEL_ULA <= 4'b0000;
+                CTRL_REG_READ_STACK <= 1'b0;
+                CTRL_REG_WRITE_STACK <= 1'b0;
+                CTRL_REG_READ_MEMORY <= 1'b0;
+                CTRL_REG_WRITE_MEMORY <= 1'b0;
+                CTRL_REG_ARG <= 1'b0;
+                CTRL_REG_INSTR <= 1'b0;
+                SEL_MUX_TOS <= 1'b0;
+                CTRL_REG_TOS <= 1'b0;
+                SEL_MUX_STACK <= 3'b000;
+            end
             default: begin
                 // ---------------------------------
                 SEL_MUX_PC <= 2'b00;
@@ -1455,6 +1489,12 @@ module CONTROL_UNIT #(
                 SEL_MUX_STACK <= 3'b000;
             end
         endcase
+        // --------------
+        // Shows the value 1 when the execution was already finished.
+        if(STATE == FINISH)
+            FINISH_SIGN <= 1'b1;
+        else
+            FINISH_SIGN <= 1'b0;
     end
 
 endmodule

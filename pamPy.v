@@ -5,7 +5,8 @@ module pamPy #(
     )(
         input general_clk, general_reset,
         output wire [(GENERAL_ADDR_WIDTH-1):0] GENERAL_PC_OUT,
-        output wire [(GENERAL_DATA_WIDTH-1):0] GENERAL_INSTR_OUT, GENERAL_ARG_OUT, TOP_STACK_OUT
+        output wire [(GENERAL_DATA_WIDTH-1):0] GENERAL_INSTR_OUT, GENERAL_ARG_OUT, TOP_STACK_OUT,
+        output wire GENERAL_FINISH
     );
 
 // block 1
@@ -170,6 +171,7 @@ CONTROL_UNIT #(
         .SEL_MUX_TOS (GENERAL_SEL_MUX_TOS),
         .SEL_MUX_PC (GENERAL_SEL_MUX_PC),
         .CTRL_REG_TOS (GENERAL_CTRL_REG_TOS),
-        .SEL_MUX_STACK (GENERAL_SEL_MUX_STACK)
+        .SEL_MUX_STACK (GENERAL_SEL_MUX_STACK),
+        .FINISH_SIGN (GENERAL_FINISH)
     );
 endmodule

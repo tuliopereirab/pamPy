@@ -68,8 +68,8 @@ assign TOP_STACK = STACK_OUT;
     end
 // ----------------------------
 // tos updater
-    assign TOS_UPDATER_OP_ADD = REG_TOS_OUT + 1;
-    assign TOS_UPDATER_OP_SUB = REG_TOS_OUT - 1;
+    assign TOS_UPDATER_OP_ADD = REG_TOS_OUT + 1'b1;
+    assign TOS_UPDATER_OP_SUB = REG_TOS_OUT - 1'b1;
     assign TOS_UPDATER_OUT = (SEL_TOS_UPDATER == 1'b0) ? TOS_UPDATER_OP_ADD :
                              TOS_UPDATER_OP_SUB;
 // ----------------------------
