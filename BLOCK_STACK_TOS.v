@@ -64,7 +64,7 @@ assign TOP_STACK = STACK_OUT;
     always @ (posedge clk)          // reg write stack
     begin
         if(CTRL_REG_WRITE_MEM)
-            REG_WRITE_MEMORY_OUT <= REG_STACK_OUT_READ;
+            REG_WRITE_MEMORY_OUT <= STACK_OUT;
     end
 // ----------------------------
 // tos updater

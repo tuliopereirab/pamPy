@@ -603,9 +603,10 @@ module CONTROL_UNIT #(
                 SEL_TOS_UPDATER <= 1'b1;
                 SEL_MUX_TOS <= 1'b0;
                 SEL_MUX_PC <= 2'b00;
-                CTRL_REG_READ_STACK <= 1'b1;
                 CTRL_REG_PC <= 1'b1;
+                CTRL_REG_WRITE_MEMORY <= 1'b1;
                 // ---------------------------------
+                CTRL_REG_READ_STACK <= 1'b0;
                 CTRL_REG_TOS_FUNCTION <= 1'b0;
                 SEL_SOMADOR_SUBTRATOR <= 1'b0;
                 CTRL_STACK_FUNCTION <= 1'b0;
@@ -618,7 +619,6 @@ module CONTROL_UNIT #(
                 SEL_ULA <= 4'b0000;
                 CTRL_REG_WRITE_STACK <= 1'b0;
                 CTRL_REG_READ_MEMORY <= 1'b0;
-                CTRL_REG_WRITE_MEMORY <= 1'b0;
                 CTRL_REG_ARG <= 1'b0;
                 CTRL_REG_INSTR <= 1'b0;
                 CTRL_REG_JUMP <= 1'b0;
@@ -632,8 +632,8 @@ module CONTROL_UNIT #(
                 SEL_PC_UPDATER <= 1'b0;
                 SEL_TOS_UPDATER <= 1'b1;
                 CTRL_REG_TOS <= 1'b1;
-                CTRL_REG_WRITE_MEMORY <= 1'b1;
                 // ---------------------------------
+                CTRL_REG_WRITE_MEMORY <= 1'b0;
                 CTRL_REG_TOS_FUNCTION <= 1'b0;
                 SEL_SOMADOR_SUBTRATOR <= 1'b0;
                 CTRL_STACK_FUNCTION <= 1'b0;

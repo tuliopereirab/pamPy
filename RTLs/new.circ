@@ -107,13 +107,13 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(690,520)" to="(710,520)"/>
     <wire from="(670,570)" to="(700,570)"/>
     <wire from="(120,480)" to="(120,520)"/>
-    <wire from="(770,150)" to="(770,310)"/>
     <wire from="(150,580)" to="(170,580)"/>
     <wire from="(250,320)" to="(270,320)"/>
     <wire from="(230,470)" to="(230,520)"/>
     <wire from="(150,390)" to="(160,390)"/>
     <wire from="(340,300)" to="(340,350)"/>
     <wire from="(630,470)" to="(630,520)"/>
+    <wire from="(730,270)" to="(810,270)"/>
     <wire from="(700,540)" to="(710,540)"/>
     <wire from="(660,220)" to="(670,220)"/>
     <wire from="(710,310)" to="(720,310)"/>
@@ -128,12 +128,12 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(170,580)" to="(170,590)"/>
     <wire from="(520,400)" to="(520,470)"/>
     <wire from="(760,440)" to="(760,530)"/>
-    <wire from="(770,150)" to="(810,150)"/>
     <wire from="(400,410)" to="(400,440)"/>
     <wire from="(260,590)" to="(360,590)"/>
     <wire from="(580,710)" to="(820,710)"/>
     <wire from="(510,160)" to="(510,190)"/>
     <wire from="(510,160)" to="(800,160)"/>
+    <wire from="(500,150)" to="(790,150)"/>
     <wire from="(290,380)" to="(290,410)"/>
     <wire from="(290,500)" to="(290,530)"/>
     <wire from="(260,480)" to="(300,480)"/>
@@ -145,7 +145,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(630,280)" to="(630,320)"/>
     <wire from="(520,400)" to="(540,400)"/>
     <wire from="(490,400)" to="(520,400)"/>
-    <wire from="(810,150)" to="(810,640)"/>
     <wire from="(760,680)" to="(780,680)"/>
     <wire from="(560,360)" to="(720,360)"/>
     <wire from="(400,440)" to="(420,440)"/>
@@ -161,6 +160,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(120,250)" to="(130,250)"/>
     <wire from="(670,520)" to="(680,520)"/>
     <wire from="(500,220)" to="(570,220)"/>
+    <wire from="(780,310)" to="(790,310)"/>
     <wire from="(630,520)" to="(640,520)"/>
     <wire from="(250,260)" to="(250,320)"/>
     <wire from="(620,470)" to="(630,470)"/>
@@ -175,6 +175,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(580,440)" to="(580,460)"/>
     <wire from="(240,580)" to="(240,610)"/>
     <wire from="(370,400)" to="(460,400)"/>
+    <wire from="(730,270)" to="(730,310)"/>
     <wire from="(610,220)" to="(630,220)"/>
     <wire from="(260,380)" to="(290,380)"/>
     <wire from="(370,410)" to="(400,410)"/>
@@ -182,6 +183,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(370,290)" to="(400,290)"/>
     <wire from="(370,420)" to="(390,420)"/>
     <wire from="(600,320)" to="(630,320)"/>
+    <wire from="(790,150)" to="(790,310)"/>
     <wire from="(210,420)" to="(230,420)"/>
     <wire from="(200,210)" to="(220,210)"/>
     <wire from="(100,320)" to="(100,370)"/>
@@ -212,6 +214,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(740,610)" to="(740,630)"/>
     <wire from="(430,470)" to="(520,470)"/>
     <wire from="(580,480)" to="(580,590)"/>
+    <wire from="(730,310)" to="(750,310)"/>
     <wire from="(430,490)" to="(450,490)"/>
     <wire from="(230,380)" to="(230,420)"/>
     <wire from="(480,500)" to="(500,500)"/>
@@ -226,127 +229,126 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(170,360)" to="(180,360)"/>
     <wire from="(580,650)" to="(580,710)"/>
     <wire from="(230,580)" to="(240,580)"/>
-    <wire from="(500,150)" to="(770,150)"/>
     <wire from="(120,480)" to="(260,480)"/>
     <wire from="(100,370)" to="(110,370)"/>
     <wire from="(110,580)" to="(120,580)"/>
     <wire from="(720,310)" to="(720,360)"/>
     <wire from="(810,680)" to="(820,680)"/>
-    <wire from="(760,310)" to="(770,310)"/>
-    <wire from="(720,310)" to="(730,310)"/>
     <wire from="(740,610)" to="(750,610)"/>
+    <wire from="(720,310)" to="(730,310)"/>
     <wire from="(260,280)" to="(330,280)"/>
     <wire from="(300,320)" to="(370,320)"/>
+    <wire from="(810,270)" to="(810,640)"/>
     <wire from="(580,650)" to="(590,650)"/>
     <wire from="(100,470)" to="(230,470)"/>
-    <comp lib="4" loc="(810,680)" name="Register">
-      <a name="label" val="regWrite"/>
-    </comp>
-    <comp loc="(240,250)" name="ULA">
-      <a name="facing" val="west"/>
-      <a name="label" val="ULA"/>
-    </comp>
     <comp lib="4" loc="(600,320)" name="Register">
       <a name="label" val="regDataReturn"/>
-    </comp>
-    <comp lib="4" loc="(450,440)" name="Register">
-      <a name="label" val="regInstr"/>
-    </comp>
-    <comp lib="4" loc="(150,580)" name="Register">
-      <a name="width" val="12"/>
-      <a name="label" val="regTosFuncao"/>
     </comp>
     <comp lib="4" loc="(730,630)" name="RAM">
       <a name="addrWidth" val="12"/>
       <a name="bus" val="separate"/>
     </comp>
-    <comp lib="0" loc="(150,340)" name="Constant">
-      <a name="width" val="12"/>
-    </comp>
-    <comp lib="3" loc="(750,530)" name="Adder">
-      <a name="width" val="12"/>
-    </comp>
-    <comp lib="4" loc="(490,400)" name="Register">
-      <a name="label" val="regArg"/>
+    <comp loc="(160,520)" name="pilha Funções">
+      <a name="facing" val="west"/>
+      <a name="label" val="Stack PC Return"/>
     </comp>
     <comp loc="(360,280)" name="Comparison Stack">
       <a name="label" val="Comp_Stack"/>
     </comp>
-    <comp lib="2" loc="(620,470)" name="Multiplexer">
+    <comp loc="(240,250)" name="ULA">
+      <a name="facing" val="west"/>
+      <a name="label" val="ULA"/>
+    </comp>
+    <comp lib="4" loc="(150,580)" name="Register">
       <a name="width" val="12"/>
+      <a name="label" val="regTosFuncao"/>
+    </comp>
+    <comp lib="6" loc="(427,287)" name="Text">
+      <a name="text" val="Control"/>
+    </comp>
+    <comp loc="(710,310)" name="Pilha 1">
+      <a name="label" val="Stack"/>
+    </comp>
+    <comp lib="3" loc="(750,530)" name="Adder">
+      <a name="width" val="12"/>
+    </comp>
+    <comp lib="4" loc="(780,310)" name="Register">
+      <a name="label" val="regRead"/>
+    </comp>
+    <comp lib="4" loc="(660,220)" name="Register">
+      <a name="label" val="regWrite"/>
+    </comp>
+    <comp lib="4" loc="(490,400)" name="Register">
+      <a name="label" val="regArg"/>
+    </comp>
+    <comp lib="3" loc="(220,350)" name="Adder">
+      <a name="width" val="12"/>
+    </comp>
+    <comp lib="4" loc="(780,610)" name="Register">
+      <a name="label" val="regRead"/>
+    </comp>
+    <comp lib="0" loc="(670,570)" name="Constant">
+      <a name="width" val="12"/>
+    </comp>
+    <comp lib="4" loc="(200,210)" name="Register">
+      <a name="label" val="regOp1"/>
+    </comp>
+    <comp loc="(340,410)" name="Memoria Instruções">
+      <a name="facing" val="west"/>
+      <a name="label" val="memInstr"/>
     </comp>
     <comp loc="(450,500)" name="regJump">
       <a name="facing" val="west"/>
       <a name="label" val="regJump"/>
       <a name="labelloc" val="south"/>
     </comp>
-    <comp lib="4" loc="(300,320)" name="Register">
-      <a name="width" val="1"/>
-      <a name="label" val="regOverflow"/>
-    </comp>
-    <comp lib="4" loc="(160,250)" name="Register">
-      <a name="label" val="regOp2"/>
+    <comp lib="2" loc="(620,470)" name="Multiplexer">
+      <a name="width" val="12"/>
     </comp>
     <comp lib="3" loc="(340,490)" name="Adder">
-      <a name="width" val="12"/>
-    </comp>
-    <comp lib="2" loc="(610,220)" name="Multiplexer">
-      <a name="select" val="3"/>
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="2" loc="(150,390)" name="Multiplexer">
-      <a name="select" val="2"/>
-      <a name="width" val="12"/>
-    </comp>
-    <comp lib="0" loc="(670,570)" name="Constant">
-      <a name="width" val="12"/>
-    </comp>
-    <comp lib="3" loc="(230,580)" name="Adder">
-      <a name="width" val="12"/>
-    </comp>
-    <comp lib="3" loc="(220,350)" name="Adder">
       <a name="width" val="12"/>
     </comp>
     <comp lib="4" loc="(670,520)" name="Register">
       <a name="width" val="12"/>
       <a name="label" val="regTos"/>
     </comp>
-    <comp lib="4" loc="(760,310)" name="Register">
-      <a name="label" val="regRead"/>
-    </comp>
-    <comp lib="4" loc="(200,210)" name="Register">
-      <a name="label" val="regOp1"/>
-    </comp>
-    <comp loc="(160,520)" name="pilha Funções">
-      <a name="facing" val="west"/>
-      <a name="label" val="Stack PC Return"/>
-    </comp>
-    <comp loc="(340,410)" name="Memoria Instruções">
-      <a name="facing" val="west"/>
-      <a name="label" val="memInstr"/>
-    </comp>
-    <comp lib="4" loc="(660,220)" name="Register">
-      <a name="label" val="regWrite"/>
-    </comp>
-    <comp lib="6" loc="(334,523)" name="Text">
-      <a name="text" val="ForwardAdder"/>
+    <comp lib="2" loc="(150,390)" name="Multiplexer">
+      <a name="select" val="2"/>
+      <a name="width" val="12"/>
     </comp>
     <comp lib="4" loc="(210,420)" name="Register">
       <a name="width" val="12"/>
       <a name="label" val="regPC"/>
     </comp>
-    <comp lib="4" loc="(780,610)" name="Register">
-      <a name="label" val="regRead"/>
-    </comp>
-    <comp loc="(710,310)" name="Pilha 1">
-      <a name="label" val="Stack"/>
-    </comp>
-    <comp lib="6" loc="(427,287)" name="Text">
-      <a name="text" val="Control"/>
+    <comp lib="4" loc="(300,320)" name="Register">
+      <a name="width" val="1"/>
+      <a name="label" val="regOverflow"/>
     </comp>
     <comp loc="(360,590)" name="reg end Bloco">
       <a name="facing" val="west"/>
       <a name="label" val="Stack Tos Return"/>
+    </comp>
+    <comp lib="2" loc="(610,220)" name="Multiplexer">
+      <a name="select" val="3"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="4" loc="(450,440)" name="Register">
+      <a name="label" val="regInstr"/>
+    </comp>
+    <comp lib="4" loc="(160,250)" name="Register">
+      <a name="label" val="regOp2"/>
+    </comp>
+    <comp lib="3" loc="(230,580)" name="Adder">
+      <a name="width" val="12"/>
+    </comp>
+    <comp lib="4" loc="(810,680)" name="Register">
+      <a name="label" val="regWrite"/>
+    </comp>
+    <comp lib="6" loc="(334,523)" name="Text">
+      <a name="text" val="ForwardAdder"/>
+    </comp>
+    <comp lib="0" loc="(150,340)" name="Constant">
+      <a name="width" val="12"/>
     </comp>
   </circuit>
   <circuit name="ULA">
@@ -354,29 +356,18 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="6" loc="(781,247)" name="Text">
-      <a name="text" val="*; +; -; /; &lt;; &gt;; ="/>
-      <a name="font" val="SansSerif plain 20"/>
-    </comp>
-    <comp lib="0" loc="(250,300)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="label" val="Saída Comparação"/>
-    </comp>
-    <comp lib="6" loc="(594,589)" name="Text">
-      <a name="text" val="OP2 &gt; OP1"/>
+    <comp lib="0" loc="(170,150)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="width" val="8"/>
+      <a name="label" val="Entrada MUX Oper 1"/>
     </comp>
     <comp lib="0" loc="(380,300)" name="Pin">
       <a name="facing" val="south"/>
       <a name="output" val="true"/>
       <a name="label" val="Saída Overflow"/>
     </comp>
-    <comp lib="6" loc="(598,511)" name="Text">
-      <a name="text" val="OP2 + OP1"/>
-    </comp>
-    <comp lib="6" loc="(713,212)" name="Text">
-      <a name="text" val="É capaz de:"/>
-      <a name="font" val="SansSerif plain 16"/>
+    <comp lib="6" loc="(596,528)" name="Text">
+      <a name="text" val="OP2 * OP1"/>
     </comp>
     <comp lib="6" loc="(596,559)" name="Text">
       <a name="text" val="OP2 = OP1"/>
@@ -384,33 +375,44 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="6" loc="(598,573)" name="Text">
       <a name="text" val="OP2 &lt; OP1"/>
     </comp>
+    <comp lib="6" loc="(594,589)" name="Text">
+      <a name="text" val="OP2 &gt; OP1"/>
+    </comp>
     <comp lib="0" loc="(440,190)" name="Pin">
       <a name="output" val="true"/>
       <a name="width" val="8"/>
       <a name="label" val="Saída OutULA"/>
     </comp>
-    <comp lib="6" loc="(596,528)" name="Text">
-      <a name="text" val="OP2 * OP1"/>
+    <comp lib="6" loc="(598,511)" name="Text">
+      <a name="text" val="OP2 + OP1"/>
+    </comp>
+    <comp lib="6" loc="(781,247)" name="Text">
+      <a name="text" val="*; +; -; /; &lt;; &gt;; ="/>
+      <a name="font" val="SansSerif plain 20"/>
     </comp>
     <comp lib="0" loc="(170,230)" name="Pin">
       <a name="facing" val="west"/>
       <a name="width" val="8"/>
       <a name="label" val="Entrada MUX Oper 2"/>
     </comp>
-    <comp lib="6" loc="(594,543)" name="Text">
-      <a name="text" val="OP2 / OP1"/>
-    </comp>
-    <comp lib="6" loc="(574,495)" name="Text">
-      <a name="text" val="Executa: OP2 - OP1"/>
-    </comp>
     <comp lib="6" loc="(764,179)" name="Text">
       <a name="text" val="Unidade Lógica Aritmética"/>
       <a name="font" val="SansSerif plain 16"/>
     </comp>
-    <comp lib="0" loc="(170,150)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="width" val="8"/>
-      <a name="label" val="Entrada MUX Oper 1"/>
+    <comp lib="6" loc="(594,543)" name="Text">
+      <a name="text" val="OP2 / OP1"/>
+    </comp>
+    <comp lib="0" loc="(250,300)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Saída Comparação"/>
+    </comp>
+    <comp lib="6" loc="(713,212)" name="Text">
+      <a name="text" val="É capaz de:"/>
+      <a name="font" val="SansSerif plain 16"/>
+    </comp>
+    <comp lib="6" loc="(574,495)" name="Text">
+      <a name="text" val="Executa: OP2 - OP1"/>
     </comp>
   </circuit>
   <circuit name="Memoria Instruções">
@@ -444,14 +446,18 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="6" loc="(574,275)" name="Text">
-      <a name="text" val="Sempre que executar uma leitura, o valor é excluído da pilha"/>
+    <comp lib="6" loc="(604,297)" name="Text">
+      <a name="text" val="Sempre que executar uma escrita, o valor é adicionado no topo da pilha"/>
+    </comp>
+    <comp lib="0" loc="(260,330)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+      <a name="label" val="Saída READ"/>
+      <a name="labelloc" val="north"/>
     </comp>
     <comp lib="6" loc="(599,150)" name="Text">
       <a name="text" val="Sempre estará lendo o que foi solicitado por último e escrevendo na saída de leitura"/>
-    </comp>
-    <comp lib="6" loc="(604,297)" name="Text">
-      <a name="text" val="Sempre que executar uma escrita, o valor é adicionado no topo da pilha"/>
     </comp>
     <comp lib="0" loc="(210,230)" name="Pin">
       <a name="facing" val="north"/>
@@ -461,19 +467,15 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="6" loc="(580,182)" name="Text">
       <a name="text" val="Só irá escrever quando for solicitado e no topo da pilha"/>
     </comp>
-    <comp lib="0" loc="(150,330)" name="Pin">
-      <a name="width" val="8"/>
-      <a name="label" val="Entrada WRITE"/>
-      <a name="labelloc" val="north"/>
-    </comp>
     <comp lib="6" loc="(538,458)" name="Text">
       <a name="text" val="No caso de operações aritméticas, irá ler um de cada vez e irá atualizando o topo, receberá o resultado e salvará no novo topo (mesma posição do segundo operando)"/>
     </comp>
-    <comp lib="0" loc="(260,330)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
+    <comp lib="6" loc="(574,275)" name="Text">
+      <a name="text" val="Sempre que executar uma leitura, o valor é excluído da pilha"/>
+    </comp>
+    <comp lib="0" loc="(150,330)" name="Pin">
       <a name="width" val="8"/>
-      <a name="label" val="Saída READ"/>
+      <a name="label" val="Entrada WRITE"/>
       <a name="labelloc" val="north"/>
     </comp>
   </circuit>
@@ -485,30 +487,30 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="6" loc="(624,127)" name="Text">
       <a name="text" val="O TOS será crescente a determinada unidade. Então cada WRITE acrescenta uma unidade TOS e cada READ decrementa uma unidade TOS"/>
     </comp>
-    <comp lib="0" loc="(130,180)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="label" val="Reg OutULA"/>
-    </comp>
     <comp lib="6" loc="(616,261)" name="Text">
       <a name="text" val="Receberá sempre o valor de cálculo da ULA"/>
     </comp>
-    <comp lib="0" loc="(200,280)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="label" val="Entrada CTL"/>
+    <comp lib="6" loc="(646,85)" name="Text">
+      <a name="text" val="Antes de qualquer WRITE na Pilha, o TOS deverá ser atualizado e então salvar na posição do novo TOS na pilha"/>
     </comp>
     <comp lib="0" loc="(320,180)" name="Pin">
       <a name="output" val="true"/>
       <a name="label" val="Saída Mem/Mux"/>
     </comp>
-    <comp lib="6" loc="(646,85)" name="Text">
-      <a name="text" val="Antes de qualquer WRITE na Pilha, o TOS deverá ser atualizado e então salvar na posição do novo TOS na pilha"/>
+    <comp lib="6" loc="(628,275)" name="Text">
+      <a name="text" val="Após calcular o novo TOS"/>
+    </comp>
+    <comp lib="0" loc="(130,180)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="label" val="Reg OutULA"/>
     </comp>
     <comp lib="0" loc="(200,90)" name="Pin">
       <a name="facing" val="north"/>
       <a name="label" val="Entrada CLK"/>
     </comp>
-    <comp lib="6" loc="(628,275)" name="Text">
-      <a name="text" val="Após calcular o novo TOS"/>
+    <comp lib="0" loc="(200,280)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="label" val="Entrada CTL"/>
     </comp>
   </circuit>
   <circuit name="Reg PC">
@@ -516,21 +518,21 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="0" loc="(200,280)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="label" val="Entrada CTL"/>
+    <comp lib="0" loc="(130,180)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="label" val="Reg OutULA"/>
     </comp>
     <comp lib="0" loc="(320,180)" name="Pin">
       <a name="output" val="true"/>
       <a name="label" val="Saída Mem/Mux"/>
     </comp>
+    <comp lib="0" loc="(200,280)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="label" val="Entrada CTL"/>
+    </comp>
     <comp lib="0" loc="(200,90)" name="Pin">
       <a name="facing" val="north"/>
       <a name="label" val="Entrada CLK"/>
-    </comp>
-    <comp lib="0" loc="(130,180)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="label" val="Reg OutULA"/>
     </comp>
   </circuit>
   <circuit name="Reg Operando 1">
@@ -538,10 +540,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="0" loc="(160,180)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="label" val="Entrada Reg Pilha"/>
-    </comp>
     <comp lib="0" loc="(200,90)" name="Pin">
       <a name="facing" val="north"/>
       <a name="label" val="Entrada CLK"/>
@@ -553,6 +551,10 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(200,280)" name="Pin">
       <a name="facing" val="south"/>
       <a name="label" val="Entrada CTL"/>
+    </comp>
+    <comp lib="0" loc="(160,180)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="label" val="Entrada Reg Pilha"/>
     </comp>
   </circuit>
   <circuit name="Reg Operando 2">
@@ -586,6 +588,10 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="facing" val="south"/>
       <a name="label" val="Entrada CTL"/>
     </comp>
+    <comp lib="0" loc="(340,180)" name="Pin">
+      <a name="output" val="true"/>
+      <a name="label" val="Saída PC/Reg_Pilha"/>
+    </comp>
     <comp lib="0" loc="(200,90)" name="Pin">
       <a name="facing" val="north"/>
       <a name="label" val="Entrada CLK"/>
@@ -594,79 +600,75 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="facing" val="west"/>
       <a name="label" val="Entrada ULA"/>
     </comp>
-    <comp lib="0" loc="(340,180)" name="Pin">
-      <a name="output" val="true"/>
-      <a name="label" val="Saída PC/Reg_Pilha"/>
-    </comp>
   </circuit>
   <circuit name="Reg Pilha">
     <a name="circuit" val="Reg Pilha"/>
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="0" loc="(810,250)" name="Pin">
-      <a name="label" val="Entrada READ"/>
-    </comp>
-    <comp lib="6" loc="(57,227)" name="Text">
-      <a name="text" val="Entrada regOutULA"/>
-    </comp>
-    <comp lib="6" loc="(55,203)" name="Text">
-      <a name="text" val="Entrada Mem Instr"/>
-    </comp>
-    <comp lib="6" loc="(616,86)" name="Text">
-      <a name="text" val="Em um LOAD_CONST, Entrada_Mem_Instr receberá uma constante vinda da memória de instruções"/>
-    </comp>
-    <comp lib="6" loc="(183,592)" name="Text">
-      <a name="text" val="O controle WRITE irá permitir a escrita na saída WRITE"/>
-    </comp>
-    <comp lib="6" loc="(585,456)" name="Text">
-      <a name="text" val="Deverá receber no CTL qual será a opção de saída"/>
-    </comp>
-    <comp lib="6" loc="(588,67)" name="Text">
-      <a name="text" val="Em um STORE_FAST, usará o valor Saída Operandos para enviar para a memória Externa"/>
-    </comp>
-    <comp lib="0" loc="(230,510)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="label" val="Entrada CTL_write"/>
-    </comp>
-    <comp lib="6" loc="(594,50)" name="Text">
-      <a name="text" val="Em um LOAD_FAST, irá receber um valor da Memória Externa e passar para a saída WRITE."/>
-    </comp>
-    <comp lib="6" loc="(209,307)" name="Text">
-      <a name="text" val="Os valores recebidos pelo MUX serão repassados para a saida WRITE"/>
-    </comp>
-    <comp lib="6" loc="(761,287)" name="Text">
-      <a name="text" val="Os valores recebidos na entrada READ serão repassados para a saída!"/>
-    </comp>
     <comp lib="0" loc="(800,210)" name="Pin">
       <a name="facing" val="north"/>
       <a name="output" val="true"/>
       <a name="label" val="Saída Operandos"/>
     </comp>
-    <comp lib="0" loc="(230,540)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="label" val="Entrada CTL_saida"/>
+    <comp lib="6" loc="(192,607)" name="Text">
+      <a name="text" val="O controle SAIDA irá permitir a escrita na saída operandos"/>
     </comp>
-    <comp lib="6" loc="(55,251)" name="Text">
-      <a name="text" val="Entrada Mem Ext"/>
+    <comp lib="6" loc="(209,307)" name="Text">
+      <a name="text" val="Os valores recebidos pelo MUX serão repassados para a saida WRITE"/>
     </comp>
     <comp lib="6" loc="(582,430)" name="Text">
       <a name="text" val="Irá receber valores diretamente da memória de instruções e da ULA"/>
     </comp>
-    <comp lib="0" loc="(230,570)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="label" val="Entrada CLK"/>
-    </comp>
-    <comp lib="0" loc="(200,230)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="label" val="Entrada MUX"/>
+    <comp lib="6" loc="(183,592)" name="Text">
+      <a name="text" val="O controle WRITE irá permitir a escrita na saída WRITE"/>
     </comp>
     <comp lib="0" loc="(220,270)" name="Pin">
       <a name="output" val="true"/>
       <a name="label" val="Saída WRITE"/>
     </comp>
-    <comp lib="6" loc="(192,607)" name="Text">
-      <a name="text" val="O controle SAIDA irá permitir a escrita na saída operandos"/>
+    <comp lib="6" loc="(55,203)" name="Text">
+      <a name="text" val="Entrada Mem Instr"/>
+    </comp>
+    <comp lib="0" loc="(230,510)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="label" val="Entrada CTL_write"/>
+    </comp>
+    <comp lib="6" loc="(57,227)" name="Text">
+      <a name="text" val="Entrada regOutULA"/>
+    </comp>
+    <comp lib="0" loc="(230,570)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="label" val="Entrada CLK"/>
+    </comp>
+    <comp lib="0" loc="(810,250)" name="Pin">
+      <a name="label" val="Entrada READ"/>
+    </comp>
+    <comp lib="6" loc="(585,456)" name="Text">
+      <a name="text" val="Deverá receber no CTL qual será a opção de saída"/>
+    </comp>
+    <comp lib="6" loc="(761,287)" name="Text">
+      <a name="text" val="Os valores recebidos na entrada READ serão repassados para a saída!"/>
+    </comp>
+    <comp lib="0" loc="(200,230)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="label" val="Entrada MUX"/>
+    </comp>
+    <comp lib="6" loc="(616,86)" name="Text">
+      <a name="text" val="Em um LOAD_CONST, Entrada_Mem_Instr receberá uma constante vinda da memória de instruções"/>
+    </comp>
+    <comp lib="6" loc="(588,67)" name="Text">
+      <a name="text" val="Em um STORE_FAST, usará o valor Saída Operandos para enviar para a memória Externa"/>
+    </comp>
+    <comp lib="6" loc="(594,50)" name="Text">
+      <a name="text" val="Em um LOAD_FAST, irá receber um valor da Memória Externa e passar para a saída WRITE."/>
+    </comp>
+    <comp lib="6" loc="(55,251)" name="Text">
+      <a name="text" val="Entrada Mem Ext"/>
+    </comp>
+    <comp lib="0" loc="(230,540)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="label" val="Entrada CTL_saida"/>
     </comp>
   </circuit>
   <circuit name="Reg Memoria Ext">
@@ -674,29 +676,16 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="0" loc="(240,440)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="label" val="Entrada CTL WRITE"/>
-    </comp>
-    <comp lib="0" loc="(530,260)" name="Pin">
-      <a name="label" val="Entrada Reg Pilha"/>
-    </comp>
-    <comp lib="0" loc="(530,430)" name="Pin">
-      <a name="output" val="true"/>
-      <a name="label" val="Saída Reg Pilha"/>
-    </comp>
-    <comp lib="6" loc="(630,425)" name="Text">
-      <a name="text" val="sinal: ctrl_RegMemExt_READ"/>
-    </comp>
-    <comp lib="6" loc="(741,407)" name="Text">
-      <a name="text" val="Lê da memória e envia para o registrador da pilha para salvar na pilha"/>
-    </comp>
     <comp lib="0" loc="(510,400)" name="Pin">
       <a name="facing" val="west"/>
       <a name="label" val="Entrada READ"/>
     </comp>
-    <comp lib="6" loc="(689,263)" name="Text">
-      <a name="text" val="Recebe da pilha e envia para escrever na memória"/>
+    <comp lib="0" loc="(240,440)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="label" val="Entrada CTL WRITE"/>
+    </comp>
+    <comp lib="6" loc="(741,407)" name="Text">
+      <a name="text" val="Lê da memória e envia para o registrador da pilha para salvar na pilha"/>
     </comp>
     <comp lib="0" loc="(510,290)" name="Pin">
       <a name="facing" val="west"/>
@@ -707,12 +696,25 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="facing" val="south"/>
       <a name="label" val="Entrada CLK"/>
     </comp>
-    <comp lib="6" loc="(632,279)" name="Text">
-      <a name="text" val="sinal: ctrl_RegMemExt_WRITE"/>
+    <comp lib="0" loc="(530,430)" name="Pin">
+      <a name="output" val="true"/>
+      <a name="label" val="Saída Reg Pilha"/>
+    </comp>
+    <comp lib="6" loc="(689,263)" name="Text">
+      <a name="text" val="Recebe da pilha e envia para escrever na memória"/>
     </comp>
     <comp lib="0" loc="(240,470)" name="Pin">
       <a name="facing" val="south"/>
       <a name="label" val="Entrada CTL READ"/>
+    </comp>
+    <comp lib="6" loc="(632,279)" name="Text">
+      <a name="text" val="sinal: ctrl_RegMemExt_WRITE"/>
+    </comp>
+    <comp lib="0" loc="(530,260)" name="Pin">
+      <a name="label" val="Entrada Reg Pilha"/>
+    </comp>
+    <comp lib="6" loc="(630,425)" name="Text">
+      <a name="text" val="sinal: ctrl_RegMemExt_READ"/>
     </comp>
   </circuit>
   <circuit name="Memoria Externa">
@@ -724,17 +726,17 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="facing" val="west"/>
       <a name="label" val="Entrada Endereço"/>
     </comp>
-    <comp lib="0" loc="(200,90)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="label" val="Entrada CLK"/>
+    <comp lib="0" loc="(200,280)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="label" val="Entrada CTL"/>
     </comp>
     <comp lib="0" loc="(320,180)" name="Pin">
       <a name="output" val="true"/>
       <a name="label" val="Saída READ"/>
     </comp>
-    <comp lib="0" loc="(200,280)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="label" val="Entrada CTL"/>
+    <comp lib="0" loc="(200,90)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="label" val="Entrada CLK"/>
     </comp>
     <comp lib="0" loc="(320,220)" name="Pin">
       <a name="label" val="Entrada Write"/>
@@ -745,24 +747,24 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="0" loc="(190,80)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="label" val="Entrada Mem Inst"/>
-    </comp>
-    <comp lib="6" loc="(457,65)" name="Text">
-      <a name="text" val="Salvará o valor referente a Instrução que está sendo executada atualmente, servirá para situar a máquina de estados"/>
-    </comp>
     <comp lib="0" loc="(200,240)" name="Pin">
       <a name="facing" val="south"/>
       <a name="output" val="true"/>
       <a name="label" val="Saída Controle"/>
     </comp>
-    <comp lib="0" loc="(110,170)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="label" val="Entrada CLK"/>
+    <comp lib="0" loc="(190,80)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="label" val="Entrada Mem Inst"/>
     </comp>
     <comp lib="0" loc="(270,170)" name="Pin">
       <a name="label" val="Entrada CTL"/>
+    </comp>
+    <comp lib="6" loc="(457,65)" name="Text">
+      <a name="text" val="Salvará o valor referente a Instrução que está sendo executada atualmente, servirá para situar a máquina de estados"/>
+    </comp>
+    <comp lib="0" loc="(110,170)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="label" val="Entrada CLK"/>
     </comp>
   </circuit>
   <circuit name="Reg Comparação">
@@ -770,24 +772,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="6" loc="(509,46)" name="Text">
-      <a name="text" val="Salvará 0 ou 1 dizendo se a operação de comparação foi falsa ou verdadeira."/>
-    </comp>
     <comp lib="6" loc="(551,67)" name="Text">
       <a name="text" val="O local para onde o resultado irá ainda não foi definido, mas acredita-se que seja o controle."/>
-    </comp>
-    <comp lib="0" loc="(90,250)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="label" val="Entrada CTL"/>
-    </comp>
-    <comp lib="0" loc="(310,160)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="label" val="Entrada ULA"/>
-    </comp>
-    <comp lib="0" loc="(310,260)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="label" val="Saída Controle"/>
     </comp>
     <comp lib="0" loc="(90,190)" name="Pin">
       <a name="facing" val="west"/>
@@ -796,20 +782,28 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="6" loc="(611,86)" name="Text">
       <a name="text" val="Quando for utilizada POP_..._TRUE ou POP_..._FALSE, o controle utilizará o valor salvo aqui para saber o que fazer"/>
     </comp>
+    <comp lib="0" loc="(310,160)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="label" val="Entrada ULA"/>
+    </comp>
+    <comp lib="6" loc="(509,46)" name="Text">
+      <a name="text" val="Salvará 0 ou 1 dizendo se a operação de comparação foi falsa ou verdadeira."/>
+    </comp>
+    <comp lib="0" loc="(90,250)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="label" val="Entrada CTL"/>
+    </comp>
+    <comp lib="0" loc="(310,260)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Saída Controle"/>
+    </comp>
   </circuit>
   <circuit name="Reg Endereço">
     <a name="circuit" val="Reg Endereço"/>
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="0" loc="(250,280)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="label" val="Entrada CTL"/>
-    </comp>
-    <comp lib="0" loc="(150,190)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="label" val="Entrada Endereço"/>
-    </comp>
     <comp lib="0" loc="(250,90)" name="Pin">
       <a name="facing" val="north"/>
       <a name="label" val="Entrada CLK"/>
@@ -818,27 +812,35 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="output" val="true"/>
       <a name="label" val="Saída para Mem Ext"/>
     </comp>
+    <comp lib="0" loc="(250,280)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="label" val="Entrada CTL"/>
+    </comp>
+    <comp lib="0" loc="(150,190)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="label" val="Entrada Endereço"/>
+    </comp>
   </circuit>
   <circuit name="Reg Aux TOS">
     <a name="circuit" val="Reg Aux TOS"/>
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="0" loc="(320,180)" name="Pin">
-      <a name="output" val="true"/>
-      <a name="label" val="Saída para operando"/>
-    </comp>
     <comp lib="0" loc="(130,180)" name="Pin">
       <a name="facing" val="west"/>
       <a name="label" val="Reg TOS"/>
     </comp>
-    <comp lib="0" loc="(200,280)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="label" val="Entrada CTL"/>
-    </comp>
     <comp lib="0" loc="(200,90)" name="Pin">
       <a name="facing" val="north"/>
       <a name="label" val="Entrada CLK"/>
+    </comp>
+    <comp lib="0" loc="(320,180)" name="Pin">
+      <a name="output" val="true"/>
+      <a name="label" val="Saída para operando"/>
+    </comp>
+    <comp lib="0" loc="(200,280)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="label" val="Entrada CTL"/>
     </comp>
   </circuit>
   <circuit name="reg Argumento">
@@ -846,35 +848,35 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="0" loc="(250,90)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="label" val="Entrada CLK"/>
-    </comp>
-    <comp lib="0" loc="(200,280)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="label" val="Entrada CTL"/>
-    </comp>
-    <comp lib="6" loc="(351,521)" name="Text">
-      <a name="text" val="O controle deverá receber o valor de regArg e "/>
-    </comp>
     <comp lib="0" loc="(150,190)" name="Pin">
       <a name="facing" val="west"/>
       <a name="label" val="Entrada"/>
-    </comp>
-    <comp lib="6" loc="(687,275)" name="Text">
-      <a name="text" val="Quando a operação for uma comparação, o argumento será o tipo de comparação a ser feita, logo deverá chegar ao controle"/>
     </comp>
     <comp lib="0" loc="(330,280)" name="Pin">
       <a name="facing" val="south"/>
       <a name="output" val="true"/>
       <a name="label" val="Saída controle"/>
     </comp>
-    <comp lib="6" loc="(349,535)" name="Text">
-      <a name="text" val="utiliza-lo para selecionar o seletor da ULA"/>
-    </comp>
     <comp lib="0" loc="(370,180)" name="Pin">
       <a name="output" val="true"/>
       <a name="label" val="Saída"/>
+    </comp>
+    <comp lib="0" loc="(200,280)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="label" val="Entrada CTL"/>
+    </comp>
+    <comp lib="6" loc="(349,535)" name="Text">
+      <a name="text" val="utiliza-lo para selecionar o seletor da ULA"/>
+    </comp>
+    <comp lib="6" loc="(351,521)" name="Text">
+      <a name="text" val="O controle deverá receber o valor de regArg e "/>
+    </comp>
+    <comp lib="6" loc="(687,275)" name="Text">
+      <a name="text" val="Quando a operação for uma comparação, o argumento será o tipo de comparação a ser feita, logo deverá chegar ao controle"/>
+    </comp>
+    <comp lib="0" loc="(250,90)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="label" val="Entrada CLK"/>
     </comp>
   </circuit>
   <circuit name="regOverflow">
@@ -882,21 +884,21 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
+    <comp lib="0" loc="(230,280)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="label" val="Entrada CTL"/>
+    </comp>
     <comp lib="0" loc="(340,190)" name="Pin">
       <a name="output" val="true"/>
       <a name="label" val="Saída controle"/>
-    </comp>
-    <comp lib="0" loc="(250,90)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="label" val="Entrada CLK"/>
     </comp>
     <comp lib="0" loc="(150,190)" name="Pin">
       <a name="facing" val="west"/>
       <a name="label" val="Entrada"/>
     </comp>
-    <comp lib="0" loc="(230,280)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="label" val="Entrada CTL"/>
+    <comp lib="0" loc="(250,90)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="label" val="Entrada CLK"/>
     </comp>
   </circuit>
   <circuit name="pilha Funções">
@@ -904,21 +906,21 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="south"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="0" loc="(160,180)" name="Pin">
-      <a name="facing" val="west"/>
+    <comp lib="0" loc="(240,300)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
       <a name="width" val="12"/>
-      <a name="label" val="Entrada PC"/>
+      <a name="label" val="TOS"/>
     </comp>
     <comp lib="0" loc="(360,210)" name="Pin">
       <a name="output" val="true"/>
       <a name="width" val="12"/>
       <a name="label" val="Saída_PC"/>
     </comp>
-    <comp lib="0" loc="(240,300)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
+    <comp lib="0" loc="(160,180)" name="Pin">
+      <a name="facing" val="west"/>
       <a name="width" val="12"/>
-      <a name="label" val="TOS"/>
+      <a name="label" val="Entrada PC"/>
     </comp>
   </circuit>
   <circuit name="reg TOS funcoes">
@@ -926,6 +928,14 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="south"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
+    <comp lib="0" loc="(130,180)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="label" val="Entrada"/>
+    </comp>
+    <comp lib="0" loc="(200,90)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="label" val="Entrada CLK"/>
+    </comp>
     <comp lib="0" loc="(200,280)" name="Pin">
       <a name="facing" val="south"/>
       <a name="label" val="Entrada CTL"/>
@@ -934,24 +944,12 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="output" val="true"/>
       <a name="label" val="Saida"/>
     </comp>
-    <comp lib="0" loc="(200,90)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="label" val="Entrada CLK"/>
-    </comp>
-    <comp lib="0" loc="(130,180)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="label" val="Entrada"/>
-    </comp>
   </circuit>
   <circuit name="somador/subtrator">
     <a name="circuit" val="somador/subtrator"/>
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="0" loc="(170,200)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="label" val="entrada"/>
-    </comp>
     <comp lib="0" loc="(440,190)" name="Pin">
       <a name="output" val="true"/>
       <a name="label" val="saida"/>
@@ -960,12 +958,29 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="facing" val="north"/>
       <a name="label" val="Entrada Controle"/>
     </comp>
+    <comp lib="0" loc="(170,200)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="label" val="entrada"/>
+    </comp>
   </circuit>
   <circuit name="reg end Bloco">
     <a name="circuit" val="reg end Bloco"/>
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
+    <comp lib="0" loc="(310,130)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="label" val="clk"/>
+    </comp>
+    <comp lib="0" loc="(260,110)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="label" val="Entrada Ctrl Write"/>
+    </comp>
+    <comp lib="0" loc="(400,190)" name="Pin">
+      <a name="output" val="true"/>
+      <a name="width" val="12"/>
+      <a name="label" val="saida TOS"/>
+    </comp>
     <comp lib="0" loc="(160,180)" name="Pin">
       <a name="facing" val="west"/>
       <a name="width" val="12"/>
@@ -976,32 +991,19 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="12"/>
       <a name="label" val="Entrada Stack Pointer"/>
     </comp>
-    <comp lib="0" loc="(400,190)" name="Pin">
-      <a name="output" val="true"/>
-      <a name="width" val="12"/>
-      <a name="label" val="saida TOS"/>
-    </comp>
-    <comp lib="0" loc="(260,110)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="label" val="Entrada Ctrl Write"/>
-    </comp>
-    <comp lib="0" loc="(310,130)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="label" val="clk"/>
-    </comp>
   </circuit>
   <circuit name="reg return data">
     <a name="circuit" val="reg return data"/>
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="0" loc="(130,180)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="label" val="entrada dado"/>
-    </comp>
     <comp lib="0" loc="(320,180)" name="Pin">
       <a name="output" val="true"/>
       <a name="label" val="saida"/>
+    </comp>
+    <comp lib="0" loc="(130,180)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="label" val="entrada dado"/>
     </comp>
     <comp lib="0" loc="(200,280)" name="Pin">
       <a name="facing" val="south"/>
@@ -1017,6 +1019,11 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
+    <comp lib="0" loc="(130,130)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="width" val="16"/>
+      <a name="label" val="Entrada_regJump"/>
+    </comp>
     <comp lib="0" loc="(130,180)" name="Pin">
       <a name="facing" val="west"/>
       <a name="width" val="8"/>
@@ -1027,32 +1034,27 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="12"/>
       <a name="label" val="Saída Mem/Mux"/>
     </comp>
-    <comp lib="0" loc="(130,130)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="width" val="16"/>
-      <a name="label" val="Entrada_regJump"/>
-    </comp>
   </circuit>
   <circuit name="reg_1_1">
     <a name="circuit" val="reg_1_1"/>
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="0" loc="(200,90)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="label" val="Entrada CLK"/>
-    </comp>
     <comp lib="0" loc="(320,180)" name="Pin">
       <a name="output" val="true"/>
       <a name="label" val="Saida"/>
     </comp>
-    <comp lib="0" loc="(200,280)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="label" val="Entrada CTL"/>
+    <comp lib="0" loc="(200,90)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="label" val="Entrada CLK"/>
     </comp>
     <comp lib="0" loc="(130,180)" name="Pin">
       <a name="facing" val="west"/>
       <a name="label" val="Entrada"/>
+    </comp>
+    <comp lib="0" loc="(200,280)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="label" val="Entrada CTL"/>
     </comp>
   </circuit>
   <circuit name="Comparison Stack">
@@ -1060,6 +1062,10 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
+    <comp lib="0" loc="(150,330)" name="Pin">
+      <a name="label" val="Entrada WRITE"/>
+      <a name="labelloc" val="north"/>
+    </comp>
     <comp lib="0" loc="(260,330)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -1070,10 +1076,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="facing" val="north"/>
       <a name="width" val="12"/>
       <a name="label" val="TOS"/>
-    </comp>
-    <comp lib="0" loc="(150,330)" name="Pin">
-      <a name="label" val="Entrada WRITE"/>
-      <a name="labelloc" val="north"/>
     </comp>
   </circuit>
 </project>
